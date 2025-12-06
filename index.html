@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webcamo | Turn Your Phone into a Professional Webcam</title>
+    <meta name="description" content="Transform your smartphone into a high-quality webcam with Webcamo. Perfect for Zoom, Discord, OBS Studio, and Teams.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1EA73F;
+            --primary-glow: rgba(30, 167, 63, 0.4);
+            --bg: #050505;
+            --surface: #0f0f0f;
+            --surface-hover: #141414;
+            --border: #222;
+            --text: #e0e0e0;
+            --text-muted: #888;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+
+        body {
+            font-family: "DM Sans", sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), 
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            background-position: center top;
+        }
+
+        /* Utilities */
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 2rem; }
+        .text-gradient {
+            background: linear-gradient(135deg, #fff 0%, var(--primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.4rem 1rem;
+            background: rgba(30, 167, 63, 0.1);
+            border: 1px solid rgba(30, 167, 63, 0.2);
+            color: var(--primary);
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(5, 5, 5, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        nav {
+            height: 80px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .logo img { width: 40px; height: 40px; }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover { color: #fff; }
+
+        .btn {
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: #fff;
+            box-shadow: 0 0 20px rgba(30, 167, 63, 0.2);
+            border: 1px solid transparent;
+        }
+
+        .btn-primary:hover {
+            background: #17903a;
+            transform: translateY(-2px);
+            box-shadow: 0 0 30px rgba(30, 167, 63, 0.4);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: #fff;
+        }
+
+        .btn-outline:hover {
+            border-color: var(--primary);
+            background: rgba(30, 167, 63, 0.05);
+        }
+
+        /* Hero */
+        .hero {
+            padding-top: 160px;
+            padding-bottom: 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(30, 167, 63, 0.15) 0%, transparent 70%);
+            filter: blur(60px);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.03em;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+        }
+
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 4rem;
+        }
+
+        /* CSS-Only Device Mockup */
+        .device-wrapper {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            perspective: 1000px;
+        }
+
+        .device-screen {
+            background: #000;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            box-shadow: 0 20px 80px -20px rgba(0,0,0,0.8), 
+                        0 0 0 1px rgba(255,255,255,0.1);
+            aspect-ratio: 16/9;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-image: radial-gradient(circle at 50% 50%, #1a1a1a 0%, #000 100%);
+        }
+        
+        .device-screen::after {
+            content: 'WEBCAMO SOURCE: CONNECTED';
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--primary);
+            background: rgba(30, 167, 63, 0.1);
+            padding: 4px 8px;
+            border-radius: 4px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.5; }
+            50% { opacity: 1; }
+            100% { opacity: 0.5; }
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            background: rgba(10,10,10,0.5);
+            padding: 2rem 0;
+            margin-top: -40px;
+            position: relative;
+            z-index: 10;
+            backdrop-filter: blur(10px);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item h3 { font-size: 2rem; color: #fff; margin-bottom: 0.2rem; }
+        .stat-item p { font-size: 0.9rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace; }
+
+        /* Bento Grid Features */
+        .features { padding: 6rem 0; }
+        
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 4rem;
+        }
+
+        .section-header h2 { font-size: 2.5rem; margin-bottom: 1rem; color: #fff; }
+
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, auto);
+            gap: 1.5rem;
+        }
+
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            border-color: var(--primary);
+            background: var(--surface-hover);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
+        }
+
+        /* Glow effect on hover */
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(800px circle at var(--mouse-x) var(--mouse-y), rgba(30, 167, 63, 0.06), transparent 40%);
+            z-index: 1;
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+        .card:hover::before { opacity: 1; }
+
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .card h3 { color: #fff; margin-bottom: 0.8rem; font-size: 1.3rem; }
+        .card p { color: var(--text-muted); font-size: 0.95rem; }
+
+        /* Grid Spans */
+        .span-2 { grid-column: span 2; }
+        .span-row-2 { grid-row: span 2; }
+
+        /* How it works - Timeline */
+        .steps-section { background: #0a0a0a; padding: 6rem 0; border-top: 1px solid var(--border); }
+
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--primary), rgba(30,167,63,0.1));
+        }
+
+        .step {
+            position: relative;
+            padding-left: 60px;
+            margin-bottom: 4rem;
+        }
+
+        .step:last-child { margin-bottom: 0; }
+
+        .step-number {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 42px;
+            height: 42px;
+            background: var(--bg);
+            border: 2px solid var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: #fff;
+            z-index: 2;
+            box-shadow: 0 0 15px var(--primary-glow);
+        }
+
+        .step h3 { color: #fff; font-size: 1.5rem; margin-bottom: 0.5rem; }
+        .step p { color: var(--text-muted); margin-bottom: 1rem; }
+        
+        .step-meta {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid var(--border);
+            padding: 1rem;
+            border-radius: 8px;
+            display: inline-block;
+        }
+
+        .check-list p { display: flex; align-items: center; gap: 8px; font-size: 0.9rem; margin-bottom: 4px; }
+        .check-list span { color: var(--primary); }
+
+        /* Download Section */
+        .download-section {
+            padding: 6rem 0;
+            background: radial-gradient(circle at center, #0f1811 0%, #000 100%);
+        }
+
+        .download-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .dl-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid var(--border);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .dl-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+            background: rgba(30, 167, 63, 0.05);
+        }
+
+        .dl-version {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin: 0.5rem 0 1.5rem;
+            display: block;
+        }
+
+        /* Compatibility */
+        .ticker-wrap {
+            overflow: hidden;
+            white-space: nowrap;
+            padding: 3rem 0;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            background: #000;
+        }
+
+        .ticker {
+            width: 50%;
+            display: inline-block;
+            animation: ticker 20s linear infinite;
+        }
+
+        .ticker-item {
+            display: inline-block;
+            padding: 0 2rem;
+            font-size: 1.5rem;
+            color: #444;
+            font-weight: 700;
+        }
+
+        @keyframes ticker {
+            0% { transform: translate3d(0, 0, 0); }
+            100% { transform: translate3d(-50%, 0, 0); }
+        }
+
+        /* Footer */
+        footer {
+            padding: 4rem 0 2rem;
+            border-top: 1px solid var(--border);
+            background: #050505;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a { color: var(--text-muted); text-decoration: none; }
+        .footer-links a:hover { color: var(--primary); }
+        .copyright { color: #444; font-size: 0.9rem; }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .bento-grid { grid-template-columns: 1fr; }
+            .span-2, .span-row-2 { grid-column: auto; grid-row: auto; }
+            .hero h1 { font-size: 2.5rem; }
+            .nav-links { display: none; } /* Simplified for demo */
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%231EA73F'/%3E%3Ccircle cx='50' cy='50' r='20' fill='none' stroke='white' stroke-width='8'/%3E%3C/svg%3E" alt="Logo">
+                    WeberxCam
+                </a>
+                <ul class="nav-links">
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#how-it-works">How it Works</a></li>
+                    <!-- <li><a href="#compatibility">Compatibility</a></li> -->
+                    <li><a href="#download" class="btn btn-primary" style="color: white;">Download Free</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <span class="badge">Version 1.0 Now Available</span>
+            <h1>Turn Your Phone Into<br><span class="text-gradient">A Pro Webcam</span></h1>
+            <p>Skip the expensive gear. Use your phone's superior camera for Zoom, OBS, and streaming in 1080p HD with ultra-low latency.</p>
+            
+            <div class="hero-btns">
+                <a href="#download" class="btn btn-primary">Get Started Free</a>
+                <a href="#how-it-works" class="btn btn-outline">How it Works</a>
+            </div>
+
+            <div class="device-wrapper">
+                <div class="device-screen">
+                    <!-- Abstract representation of a camera feed -->
+                    <div style="text-align: center; color: #333; margin-top: 5rem; padding-left: 1rem; padding-right: 1rem;">
+                        <div style="font-size: 3rem;  margin-bottom: 1rem; color: #1EA73F;">● REC</div>
+                        <p style="font-family: 'JetBrains Mono'">1080p | ISO 200 | F1.8</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- <div class="stats-bar">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>1M+</h3>
+                    <p>Downloads</p>
+                </div>
+                <div class="stat-item">
+                    <h3>4.8★</h3>
+                    <p>App Rating</p>
+                </div>
+                <div class="stat-item">
+                    <h3>150+</h3>
+                    <p>Countries</p>
+                </div>
+                <div class="stat-item">
+                    <h3>0ms</h3>
+                    <p>Lag Aim</p>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+    <!-- Compatibility Ticker -->
+    <div class="ticker-wrap">
+        <div class="ticker">
+            <div class="ticker-item">ZOOM</div>
+            <div class="ticker-item">OBS STUDIO</div>
+            <div class="ticker-item">DISCORD</div>
+            <div class="ticker-item">MICROSOFT TEAMS</div>
+            <div class="ticker-item">SKYPE</div>
+            <div class="ticker-item">GOOGLE MEET</div>
+            <div class="ticker-item">SLACK</div>
+            <!-- Duplicate for infinite scroll illusion -->
+            <div class="ticker-item">ZOOM</div>
+            <div class="ticker-item">OBS STUDIO</div>
+            <div class="ticker-item">DISCORD</div>
+            <div class="ticker-item">MICROSOFT TEAMS</div>
+            <div class="ticker-item">SKYPE</div>
+            <div class="ticker-item">GOOGLE MEET</div>
+            <div class="ticker-item">SLACK</div>
+        </div>
+    </div>
+
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-header">
+                <span class="badge">Features</span>
+                <h2>Professional Video Control</h2>
+                <p>Webcamo isn't just a mirror. It gives you DSLR-like control over your smartphone camera feed.</p>
+            </div>
+
+            <div class="bento-grid">
+                <div class="card span-2">
+                    <div class="card-icon">⚡</div>
+                    <h3>Ultra Low Latency</h3>
+                    <p>Whether you use USB or WiFi, our custom encoding engine ensures your video syncs perfectly with your audio. Ideal for gaming and live interviews.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🎥</div>
+                    <h3>4K & 1080p</h3>
+                    <p>Don't settle for grainy 720p. Stream in full crisp HD resolution.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🎛️</div>
+                    <h3>Manual Controls</h3>
+                    <p>Switch Camera, Flash Control, and Switch Mirror Image to get the perfect lighting.</p>
+                </div>
+                <div class="card span-2">
+                    <div class="card-icon">🔗</div>
+                    <h3>Wireless Freedom</h3>
+                    <p>Connect via WiFi to move around the room, or plug in via USB for a bulletproof connection during important meetings.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🔌</div>
+                    <h3>OBS Native</h3>
+                    <p>Direct plugin integration for OBS Studio for better performance.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="how-it-works" class="steps-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="badge">Setup</span>
+                <h2>Ready in 3 Minutes</h2>
+            </div>
+            
+            <div class="timeline">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Get the App</h3>
+                    <p>Install Webcamo on your mobile device. It's lightweight and detects your camera hardware automatically.</p>
+                    <div class="step-meta check-list">
+                        <p><span>✓</span> Android 7.0+</p>
+                        <!-- <p><span>✓</span> iOS 12.0+</p> -->
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Install PC Client</h3>
+                    <p>Download the zip file below</p>
+                    <p>Extract the folder and run "install.bat" file to install virtual camera driver.</p>
+                    <p>A restart will be performed to register virtual camera camera.</p>
+                    <p>Open "Webcamo Desktop.exe" file to run the application</p>
+                    <div class="step-meta check-list">
+                        <p><span>✓</span> Windows 10/11</p>
+                        <!-- <p><span>✓</span> macOS & Linux</p> -->
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Connect & Stream</h3>
+                    <p>Open the app on both devices. Connect via USB or WiFi, and select "Webcamo" in Zoom/OBS.</p>
+                    <div class="step-meta check-list">
+                        <p><span>✓</span> Auto-Discovery</p>
+                        <p><span>✓</span> Instant Sync</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="download" class="download-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="badge">Download</span>
+                <h2>Start Streaming Today</h2>
+                <p>Free for personal use. Choose your platform below.</p>
+            </div>
+
+            <div class="download-grid">
+                <div class="dl-card">
+                    <h3>Android App</h3>
+                    <span class="dl-version">v1.1.0</span>
+                    <a href="https://github.com/Adarsh1o1/webcamo/releases/download/Webcamo/Webcamo.apk" class="btn btn-primary">Download App</a>
+                </div>
+                <!-- <div class="dl-card">
+                    <h3>iOS App</h3>
+                    <span class="dl-version">v3.2.1</span>
+                    <a href="#" class="btn btn-primary">App Store</a>
+                </div> -->
+                <div class="dl-card">
+                    <h3>Windows Client</h3>
+                    <span class="dl-version">v1.1.0 (x64)</span>
+                    <a href="https://github.com/Adarsh1o1/webcamo/releases/download/WebcamoDesktop/Webcamo.Desktop-20251124T104917Z-1-001.zip" class="btn btn-primary">Download Setup</a>
+                </div>
+                <!-- <div class="dl-card">
+                    <h3>Linux / Mac</h3>
+                    <span class="dl-version">v2.1.0</span>
+                    <a href="#" class="btn btn-outline">Get Drivers</a>
+                </div> -->
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="/terms.html">Terms of Service</a>
+                <!-- <a href="#">Help Center</a> -->
+                <a href="/contact.html">Contact</a>
+            </div>
+            <p class="copyright">© 2025 Webcamo. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple hover effect for bento grid cards to track mouse position
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('mousemove', e => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+    </script>
+
+</body>
+</html>
