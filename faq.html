@@ -175,58 +175,80 @@
             gap: 1rem;
         }
 
-        details {
+        .faq-item {
             background: var(--surface);
             border: 1px solid var(--border);
             border-radius: 12px;
-            padding: 1.5rem;
+            overflow: hidden;
             transition: all 0.3s ease;
-            cursor: pointer;
         }
 
-        details:hover {
+        .faq-item:hover {
             border-color: var(--primary);
             background: var(--surface-hover);
         }
 
-        details[open] {
+        .faq-item.active {
             border-color: var(--primary);
             background: var(--surface-hover);
             box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
         }
 
-        summary {
-            list-style: none;
+        .faq-question {
+            width: 100%;
+            padding: 1.5rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            background: none;
+            border: none;
+            color: #fff;
             font-weight: 700;
             font-size: 1.1rem;
-            color: #fff;
+            cursor: pointer;
+            text-align: left;
+            font-family: inherit;
         }
 
-        summary::-webkit-details-marker {
-            display: none;
-        }
-
-        summary::after {
-            content: '+';
+        .faq-question .icon {
             font-size: 1.5rem;
             color: var(--primary);
             transition: transform 0.3s;
         }
 
-        details[open] summary::after {
+        .faq-item.active .faq-question .icon {
             transform: rotate(45deg);
         }
 
+        .faq-answer-wrapper {
+            display: grid;
+            grid-template-rows: 0fr;
+            transition: grid-template-rows 0.3s ease-out;
+        }
+
+        .faq-item.active .faq-answer-wrapper {
+            grid-template-rows: 1fr;
+        }
+
         .faq-answer {
-            margin-top: 1rem;
-            padding-top: 1rem;
+            overflow: hidden;
+            min-height: 0;
             border-top: 1px solid var(--border);
+            opacity: 0;
+            transition: opacity 0.3s ease-out;
+            visibility: hidden;
+        }
+
+        .faq-item.active .faq-answer {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .faq-answer p {
+            padding: 1.5rem;
+            /* Match question padding for alignment */
             color: var(--text-muted);
             font-size: 0.95rem;
-            animation: fadeIn 0.3s ease;
         }
 
         @keyframes fadeIn {
@@ -375,7 +397,7 @@
                 <ul class="nav-links">
                     <li><a href="index.html#features">Features</a></li>
                     <li><a href="index.html#how-it-works">How it Works</a></li>
-                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
                     <li><a href="index.html#download" class="btn btn-primary" style="color: white;">Download Free</a>
                     </li>
                 </ul>
@@ -408,45 +430,71 @@
             </div>
 
             <div class="faq-grid">
-                <details>
-                    <summary>Is Eazycam really free?</summary>
-                    <div class="faq-answer">
-                        <p>Yes! Eazycam is free for personal use. You can use it for Zoom, Discord, OBS, and other
-                            applications without any watermarks or time limits.</p>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Is Eazycam really free?
+                        <span class="icon">+</span>
+                    </button>
+                    <div class="faq-answer-wrapper">
+                        <div class="faq-answer">
+                            <p>Yes! Eazycam is free for personal use. You can use it for Zoom, Discord, OBS, and other
+                                applications without any watermarks or time limits.</p>
+                        </div>
                     </div>
-                </details>
+                </div>
 
-                <details>
-                    <summary>Does it work with Mac and Linux?</summary>
-                    <div class="faq-answer">
-                        <p>Currently, the Eazycam desktop client is available for Windows 10/11. Support for macOS and
-                            Linux is on our roadmap and will be released soon.</p>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Does it work with Mac and Linux?
+                        <span class="icon">+</span>
+                    </button>
+                    <div class="faq-answer-wrapper">
+                        <div class="faq-answer">
+                            <p>Currently, the Eazycam desktop client is available for Windows 10/11. Support for macOS
+                                and Linux is on our roadmap and will be released soon.</p>
+                        </div>
                     </div>
-                </details>
+                </div>
 
-                <details>
-                    <summary>Can I connect via USB?</summary>
-                    <div class="faq-answer">
-                        <p>Absolutely. USB connection provides the lowest latency and most stable connection. Simply
-                            enable USB Debugging on your Android device and connect it to your PC.</p>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Can I connect via USB?
+                        <span class="icon">+</span>
+                    </button>
+                    <div class="faq-answer-wrapper">
+                        <div class="faq-answer">
+                            <p>Absolutely. USB connection provides the lowest latency and most stable connection. Simply
+                                enable USB Debugging on your Android device and connect it to your PC.</p>
+                        </div>
                     </div>
-                </details>
+                </div>
 
-                <details>
-                    <summary>Why is the video lagging?</summary>
-                    <div class="faq-answer">
-                        <p>Lag is usually caused by network interface/interference on WiFi. For best results, use a 5GHz
-                            band WiFi or connect via USB cable. Also ensure your PC meets the minimum requirements.</p>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Why is the video lagging?
+                        <span class="icon">+</span>
+                    </button>
+                    <div class="faq-answer-wrapper">
+                        <div class="faq-answer">
+                            <p>Lag is usually caused by network interface/interference on WiFi. For best results, use a
+                                5GHz band WiFi or connect via USB cable. Also ensure your PC meets the minimum
+                                requirements.</p>
+                        </div>
                     </div>
-                </details>
+                </div>
 
-                <details>
-                    <summary>Which apps are supported?</summary>
-                    <div class="faq-answer">
-                        <p>Eazycam creates a virtual webcam device that works with almost any Windows application like
-                            Zoom, Microsoft Teams, Discord, Skype, OBS Studio, Slack, and Google Meet.</p>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Which apps are supported?
+                        <span class="icon">+</span>
+                    </button>
+                    <div class="faq-answer-wrapper">
+                        <div class="faq-answer">
+                            <p>Eazycam creates a virtual webcam device that works with almost any Windows application
+                                like Zoom, Microsoft Teams, Discord, Skype, OBS Studio, Slack, and Google Meet.</p>
+                        </div>
                     </div>
-                </details>
+                </div>
             </div>
         </div>
     </section>
@@ -480,6 +528,26 @@
                 menuBtn.classList.remove('active');
                 mobileMenu.classList.remove('active');
                 document.body.style.overflow = '';
+            });
+        });
+
+        // FAQ Accordion Logic
+        const faqItems = document.querySelectorAll('.faq-item');
+
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+
+                // Close all other items
+                faqItems.forEach(otherItem => {
+                    otherItem.classList.remove('active');
+                });
+
+                // Toggle current item
+                if (!isActive) {
+                    item.classList.add('active');
+                }
             });
         });
     </script>
