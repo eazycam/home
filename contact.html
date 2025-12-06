@@ -449,25 +449,29 @@
 
                 <!-- Contact Form -->
                 <div class="form-card glow-effect">
-                    <form class="form-content">
+                    <form class="form-content" action="https://api.web3forms.com/submit" method="POST">
+
+                        <input type="hidden" name="access_key" value="1588f3d7-48cf-4586-a86d-c1649a8bd053">
+                        <input type="hidden" name="redirect" value="">
+
                         <div class="form-group">
                             <label class="form-label">Name</label>
-                            <input type="text" placeholder="John Doe">
+                            <input type="text" placeholder="John Doe" name="name" required>
                         </div>
 
                         <div class="form-group">
                             <label class="form-label">Email Address</label>
-                            <input type="email" placeholder="john@example.com">
+                            <input type="email" placeholder="john@example.com" name="email" required>
                         </div>
 
                         <div class="form-group">
                             <label class="form-label">Subject</label>
-                            <input type="text" placeholder="I can't connect via WiFi...">
+                            <input type="text" placeholder="I can't connect via WiFi..." name="subject" required>
                         </div>
 
                         <div class="form-group">
                             <label class="form-label">Message</label>
-                            <textarea placeholder="Describe your issue in detail..."></textarea>
+                            <textarea placeholder="Describe your issue in detail..." name="message" required></textarea>
                         </div>
 
                         <button type="submit" class="btn-primary"
