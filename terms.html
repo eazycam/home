@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Terms of Service - Webcamo</title>
-    <meta name="description" content="Terms of Service and usage guidelines for Webcamo.">
+    <title>Terms of Service - Eazycam</title>
+    <meta name="description" content="Terms of Service and usage guidelines for Eazycam.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400&display=swap"
+        rel="stylesheet">
     <style>
         :root {
             --primary: #1EA73F;
@@ -20,7 +23,12 @@
             --text-muted: #888;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
 
         body {
             font-family: "DM Sans", sans-serif;
@@ -28,8 +36,8 @@
             color: var(--text);
             line-height: 1.6;
             overflow-x: hidden;
-            background-image: 
-                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), 
+            background-image:
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
             background-size: 50px 50px;
             background-position: center top;
@@ -39,8 +47,12 @@
         }
 
         /* Utilities */
-        .container { max-width: 1280px; margin: 0 auto; padding: 0 2rem; }
-        
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
         .badge {
             display: inline-flex;
             align-items: center;
@@ -83,7 +95,10 @@
             text-decoration: none;
         }
 
-        .logo img { width: 40px; height: 40px; }
+        .logo img {
+            width: 40px;
+            height: 30px;
+        }
 
         .nav-links {
             display: flex;
@@ -99,7 +114,9 @@
             transition: color 0.3s;
         }
 
-        .nav-links a:hover { color: #fff; }
+        .nav-links a:hover {
+            color: #fff;
+        }
 
         .btn {
             padding: 0.8rem 1.5rem;
@@ -166,23 +183,37 @@
         .legal-container::before {
             content: '';
             position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             background: radial-gradient(800px circle at var(--mouse-x) var(--mouse-y), rgba(30, 167, 63, 0.06), transparent 40%);
             z-index: 1;
             opacity: 0;
             transition: opacity 0.5s;
             pointer-events: none;
         }
-        .legal-container:hover::before { opacity: 1; }
-        .legal-container:hover { border-color: rgba(30, 167, 63, 0.3); }
+
+        .legal-container:hover::before {
+            opacity: 1;
+        }
+
+        .legal-container:hover {
+            border-color: rgba(30, 167, 63, 0.3);
+        }
 
         .content-wrapper {
             position: relative;
             z-index: 2;
         }
 
-        .legal-block { margin-bottom: 2.5rem; }
-        .legal-block:last-child { margin-bottom: 0; }
+        .legal-block {
+            margin-bottom: 2.5rem;
+        }
+
+        .legal-block:last-child {
+            margin-bottom: 0;
+        }
 
         .legal-block h2 {
             color: #fff;
@@ -200,16 +231,21 @@
             font-weight: 400;
         }
 
-        .legal-block p { margin-bottom: 1rem; color: var(--text-muted); }
-        
+        .legal-block p {
+            margin-bottom: 1rem;
+            color: var(--text-muted);
+        }
+
         .legal-block ul {
             margin-bottom: 1rem;
             padding-left: 1.5rem;
             color: var(--text-muted);
         }
-        
-        .legal-block li { margin-bottom: 0.5rem; }
-        
+
+        .legal-block li {
+            margin-bottom: 0.5rem;
+        }
+
         .legal-block a {
             color: var(--primary);
             text-decoration: none;
@@ -217,7 +253,9 @@
             transition: 0.2s;
         }
 
-        .legal-block a:hover { border-bottom-color: var(--primary); }
+        .legal-block a:hover {
+            border-bottom-color: var(--primary);
+        }
 
         /* Footer */
         footer {
@@ -236,88 +274,222 @@
             flex-wrap: wrap;
         }
 
-        .footer-links a { color: var(--text-muted); text-decoration: none; }
-        .footer-links a:hover { color: var(--primary); }
-        .copyright { color: #444; font-size: 0.9rem; }
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+        }
 
-        @media (max-width: 768px) {
-            .legal-container { padding: 1.5rem; }
-            .nav-links { display: none; }
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .copyright {
+            color: #444;
+            font-size: 0.9rem;
+        }
+
+        /* Mobile Menu Button */
+        .mobile-menu-btn {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .mobile-menu-btn span {
+            width: 25px;
+            height: 2px;
+            background: #fff;
+            transition: 0.3s;
+        }
+
+        /* Hamburger Animation */
+        .mobile-menu-btn.active span:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+
+        .mobile-menu-btn.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-btn.active span:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+
+        /* Mobile Menu Overlay */
+        .mobile-menu {
+            position: fixed;
+            top: 80px;
+            left: 0;
+            width: 100%;
+            height: calc(100vh - 80px);
+            background: rgba(5, 5, 5, 0.95);
+            backdrop-filter: blur(20px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            transform: translateY(-100%);
+            opacity: 0;
+            transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: 999;
+        }
+
+        .mobile-menu.active {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .mobile-menu a {
+            font-size: 1.5rem;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 700;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: 0.3s;
+        }
+
+        .mobile-menu.active a {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Links animation */
+        .mobile-menu.active a {
+            transition-delay: 0.2s;
+        }
+
+        .mobile-menu .btn-primary {
+            font-size: 1.2rem;
+            padding: 1rem 2rem;
+        }
+
+        @media (max-width: 900px) {
+            .legal-container {
+                padding: 1.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: flex;
+            }
         }
     </style>
 </head>
+
 <body>
 
     <header>
         <div class="container">
             <nav>
                 <a href="index.html" class="logo">
-                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%231EA73F'/%3E%3Ccircle cx='50' cy='50' r='20' fill='none' stroke='white' stroke-width='8'/%3E%3C/svg%3E" alt="Logo">
-                    Webcamo
+                    <img src="assets/logo.png" alt="Logo">
+                    Eazycam
                 </a>
                 <ul class="nav-links">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="index.html#features">Features</a></li>
-                    <li><a href="index.html#download" class="btn btn-primary" style="color: white;">Download App</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="index.html#download" class="btn btn-primary" style="color: white;">Download App</a>
+                    </li>
                 </ul>
+                <div class="mobile-menu-btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
             </nav>
         </div>
     </header>
+
+    <div class="mobile-menu">
+        <a href="index.html">Home</a>
+        <a href="faq.html">FAQ</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+        <a href="contact.html">Contact</a>
+        <a href="index.html#download" class="btn btn-primary">Download Free</a>
+    </div>
 
     <section class="legal-section">
         <div class="container">
             <div class="page-header">
                 <span class="badge">Legal</span>
                 <h1>Terms of Service</h1>
-                <p>Last Updated: November 23, 2025</p>
+                <p>Last Updated: December 6, 2025</p>
             </div>
 
             <div class="legal-container" id="legal-card">
                 <div class="content-wrapper">
                     <div class="legal-block">
                         <h2>1. Acceptance of Terms</h2>
-                        <p>By downloading, installing, or using the Webcamo mobile application or desktop client (collectively, the "Service"), you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use the Service.</p>
+                        <p>By downloading, installing, or using the Eazycam mobile application or desktop client
+                            (collectively, the "Service"), you agree to be bound by these Terms of Service. If you do
+                            not agree to these terms, please do not use the Service.</p>
                     </div>
 
                     <div class="legal-block">
                         <h2>2. Use of Service</h2>
-                        <p>Webcamo grants you a personal, non-exclusive, non-transferable, revocable license to use the Service for personal or commercial purposes, provided that:</p>
+                        <p>Eazycam grants you a personal, non-exclusive, non-transferable, revocable license to use the
+                            Service for personal or commercial purposes, provided that:</p>
                         <ul>
                             <li>You do not use the Service for any illegal or unauthorized purpose.</li>
-                            <li>You do not attempt to reverse engineer, decompile, or disassemble any portion of the software.</li>
+                            <li>You do not attempt to reverse engineer, decompile, or disassemble any portion of the
+                                software.</li>
                             <li>You do not use the Service to transmit viruses or malicious code.</li>
                         </ul>
                     </div>
 
                     <div class="legal-block">
                         <h2>3. User Content</h2>
-                        <p>Webcamo acts as a pass-through utility for your camera feed. We do not record, store, or transmit your video feed to our servers. Your video data remains local on your network or device unless explicitly broadcast by you via third-party software (e.g., Zoom, OBS).</p>
+                        <p>Eazycam acts as a pass-through utility for your camera feed. We do not record, store, or
+                            transmit your video feed to our servers. Your video data remains local on your network or
+                            device unless explicitly broadcast by you via third-party software (e.g., Zoom, OBS).</p>
                     </div>
 
                     <div class="legal-block">
                         <h2>4. Intellectual Property</h2>
-                        <p>The Service and its original content, features, and functionality are and will remain the exclusive property of Webcamo and its licensors. The Service is protected by copyright, trademark, and other laws of both the country of origin and foreign countries.</p>
+                        <p>The Service and its original content, features, and functionality are and will remain the
+                            exclusive property of Eazycam and its licensors. The Service is protected by copyright,
+                            trademark, and other laws of both the country of origin and foreign countries.</p>
                     </div>
 
                     <div class="legal-block">
                         <h2>5. Disclaimer of Warranties</h2>
-                        <p>The Service is provided on an "AS IS" and "AS AVAILABLE" basis. Webcamo makes no representations or warranties of any kind, express or implied, regarding the operation of the Service, or the information, content, or materials included therein.</p>
-                        <p>We do not guarantee that the Service will function uninterrupted, secure, or available at any particular time or location, or that any errors or defects will be corrected.</p>
+                        <p>The Service is provided on an "AS IS" and "AS AVAILABLE" basis. Eazycam makes no
+                            representations or warranties of any kind, express or implied, regarding the operation of
+                            the Service, or the information, content, or materials included therein.</p>
+                        <p>We do not guarantee that the Service will function uninterrupted, secure, or available at any
+                            particular time or location, or that any errors or defects will be corrected.</p>
                     </div>
 
                     <div class="legal-block">
                         <h2>6. Limitation of Liability</h2>
-                        <p>In no event shall Webcamo, nor its directors, employees, partners, agents, suppliers, or affiliates, be liable for any indirect, incidental, special, consequential or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses, resulting from your access to or use of or inability to access or use the Service.</p>
+                        <p>In no event shall Eazycam, nor its directors, employees, partners, agents, suppliers, or
+                            affiliates, be liable for any indirect, incidental, special, consequential or punitive
+                            damages, including without limitation, loss of profits, data, use, goodwill, or other
+                            intangible losses, resulting from your access to or use of or inability to access or use the
+                            Service.</p>
                     </div>
 
                     <div class="legal-block">
                         <h2>7. Changes to Terms</h2>
-                        <p>We reserve the right, at our sole discretion, to modify or replace these Terms at any time. If a revision is material, we will provide at least 30 days' notice prior to any new terms taking effect. What constitutes a material change will be determined at our sole discretion.</p>
+                        <p>We reserve the right, at our sole discretion, to modify or replace these Terms at any time.
+                            If a revision is material, we will provide at least 30 days' notice prior to any new terms
+                            taking effect. What constitutes a material change will be determined at our sole discretion.
+                        </p>
                     </div>
 
                     <div class="legal-block">
                         <h2>8. Contact Us</h2>
-                        <p>If you have any questions about these Terms, please contact us at <a href="mailto:support@webcamo.app">support@webcamo.app</a>.</p>
+                        <p>If you have any questions about these Terms, please contact us at <a
+                                href="mailto:eazycam.app@gmail.com">eazycam.app@gmail.com</a>.</p>
                     </div>
                 </div>
             </div>
@@ -331,14 +503,14 @@
                 <a href="#">Terms of Service</a>
                 <a href="/contact.html">Contact</a>
             </div>
-            <p class="copyright">© 2025 Webcamo. All rights reserved.</p>
+            <p class="copyright">© 2025 Eazycam. All rights reserved.</p>
         </div>
     </footer>
 
     <script>
         // Hover glow effect for the legal container
         const card = document.getElementById('legal-card');
-        if(card) {
+        if (card) {
             card.addEventListener('mousemove', e => {
                 const rect = card.getBoundingClientRect();
                 const x = e.clientX - rect.left;
@@ -347,7 +519,29 @@
                 card.style.setProperty('--mouse-y', `${y}px`);
             });
         }
+
+        // Mobile Menu Toggle
+        const menuBtn = document.querySelector('.mobile-menu-btn');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const menuLinks = document.querySelectorAll('.mobile-menu a');
+
+        if (menuBtn) {
+            menuBtn.addEventListener('click', () => {
+                menuBtn.classList.toggle('active');
+                mobileMenu.classList.toggle('active');
+                document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+            });
+
+            menuLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    menuBtn.classList.remove('active');
+                    mobileMenu.classList.remove('active');
+                    document.body.style.overflow = '';
+                });
+            });
+        }
     </script>
 
 </body>
+
 </html>

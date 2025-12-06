@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Webcamo | Turn Your Phone into a Professional Webcam</title>
-    <meta name="description" content="Transform your smartphone into a high-quality webcam with Webcamo. Perfect for Zoom, Discord, OBS Studio, and Teams.">
+    <title>Eazycam | Turn Your Phone into a Professional Webcam</title>
+    <meta name="description"
+        content="Transform your smartphone into a high-quality webcam with Eazycam. Perfect for Zoom, Discord, OBS Studio, and Teams.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400&display=swap"
+        rel="stylesheet">
     <style>
         :root {
             --primary: #1EA73F;
@@ -20,7 +24,12 @@
             --text-muted: #888;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
 
         body {
             font-family: "DM Sans", sans-serif;
@@ -28,20 +37,27 @@
             color: var(--text);
             line-height: 1.6;
             overflow-x: hidden;
-            background-image: 
-                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), 
+            background-image:
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
             background-size: 50px 50px;
             background-position: center top;
         }
 
         /* Utilities */
-        .container { max-width: 1280px; margin: 0 auto; padding: 0 2rem; }
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
         .text-gradient {
             background: linear-gradient(135deg, #fff 0%, var(--primary) 100%);
+            background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+
         .badge {
             display: inline-flex;
             align-items: center;
@@ -77,14 +93,17 @@
         .logo {
             display: flex;
             align-items: center;
-            gap: 0.8rem;
+            gap: 0.98rem;
             font-weight: 700;
             font-size: 1.5rem;
             color: #fff;
             text-decoration: none;
         }
 
-        .logo img { width: 40px; height: 40px; }
+        .logo img {
+            width: 40px;
+            height: 30px;
+        }
 
         .nav-links {
             display: flex;
@@ -100,7 +119,9 @@
             transition: color 0.3s;
         }
 
-        .nav-links a:hover { color: #fff; }
+        .nav-links a:hover {
+            color: #fff;
+        }
 
         .btn {
             padding: 0.8rem 1.5rem;
@@ -195,8 +216,8 @@
             background: #000;
             border-radius: 20px;
             border: 1px solid var(--border);
-            box-shadow: 0 20px 80px -20px rgba(0,0,0,0.8), 
-                        0 0 0 1px rgba(255,255,255,0.1);
+            box-shadow: 0 20px 80px -20px rgba(0, 0, 0, 0.8),
+                0 0 0 1px rgba(255, 255, 255, 0.1);
             aspect-ratio: 16/9;
             position: relative;
             overflow: hidden;
@@ -205,9 +226,9 @@
             justify-content: center;
             background-image: radial-gradient(circle at 50% 50%, #1a1a1a 0%, #000 100%);
         }
-        
+
         .device-screen::after {
-            content: 'WEBCAMO SOURCE: CONNECTED';
+            content: 'Eazycam SOURCE: CONNECTED';
             position: absolute;
             top: 20px;
             right: 20px;
@@ -221,16 +242,24 @@
         }
 
         @keyframes pulse {
-            0% { opacity: 0.5; }
-            50% { opacity: 1; }
-            100% { opacity: 0.5; }
+            0% {
+                opacity: 0.5;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0.5;
+            }
         }
 
         /* Stats Bar */
         .stats-bar {
             border-top: 1px solid var(--border);
             border-bottom: 1px solid var(--border);
-            background: rgba(10,10,10,0.5);
+            background: rgba(10, 10, 10, 0.5);
             padding: 2rem 0;
             margin-top: -40px;
             position: relative;
@@ -245,19 +274,34 @@
             text-align: center;
         }
 
-        .stat-item h3 { font-size: 2rem; color: #fff; margin-bottom: 0.2rem; }
-        .stat-item p { font-size: 0.9rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace; }
+        .stat-item h3 {
+            font-size: 2rem;
+            color: #fff;
+            margin-bottom: 0.2rem;
+        }
+
+        .stat-item p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-family: 'JetBrains Mono', monospace;
+        }
 
         /* Bento Grid Features */
-        .features { padding: 6rem 0; }
-        
+        .features {
+            padding: 6rem 0;
+        }
+
         .section-header {
             text-align: center;
             max-width: 700px;
             margin: 0 auto 4rem;
         }
 
-        .section-header h2 { font-size: 2.5rem; margin-bottom: 1rem; color: #fff; }
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
 
         .bento-grid {
             display: grid;
@@ -280,25 +324,31 @@
             border-color: var(--primary);
             background: var(--surface-hover);
             transform: translateY(-4px);
-            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
         }
 
         /* Glow effect on hover */
         .card::before {
             content: '';
             position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             background: radial-gradient(800px circle at var(--mouse-x) var(--mouse-y), rgba(30, 167, 63, 0.06), transparent 40%);
             z-index: 1;
             opacity: 0;
             transition: opacity 0.5s;
         }
-        .card:hover::before { opacity: 1; }
+
+        .card:hover::before {
+            opacity: 1;
+        }
 
         .card-icon {
             width: 48px;
             height: 48px;
-            background: rgba(255,255,255,0.05);
+            background: rgba(255, 255, 255, 0.05);
             border-radius: 10px;
             display: flex;
             align-items: center;
@@ -308,15 +358,32 @@
             margin-bottom: 1.5rem;
         }
 
-        .card h3 { color: #fff; margin-bottom: 0.8rem; font-size: 1.3rem; }
-        .card p { color: var(--text-muted); font-size: 0.95rem; }
+        .card h3 {
+            color: #fff;
+            margin-bottom: 0.8rem;
+            font-size: 1.3rem;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
 
         /* Grid Spans */
-        .span-2 { grid-column: span 2; }
-        .span-row-2 { grid-row: span 2; }
+        .span-2 {
+            grid-column: span 2;
+        }
+
+        .span-row-2 {
+            grid-row: span 2;
+        }
 
         /* How it works - Timeline */
-        .steps-section { background: #0a0a0a; padding: 6rem 0; border-top: 1px solid var(--border); }
+        .steps-section {
+            background: #0a0a0a;
+            padding: 6rem 0;
+            border-top: 1px solid var(--border);
+        }
 
         .timeline {
             position: relative;
@@ -331,7 +398,7 @@
             top: 0;
             bottom: 0;
             width: 2px;
-            background: linear-gradient(to bottom, var(--primary), rgba(30,167,63,0.1));
+            background: linear-gradient(to bottom, var(--primary), rgba(30, 167, 63, 0.1));
         }
 
         .step {
@@ -340,7 +407,9 @@
             margin-bottom: 4rem;
         }
 
-        .step:last-child { margin-bottom: 0; }
+        .step:last-child {
+            margin-bottom: 0;
+        }
 
         .step-number {
             position: absolute;
@@ -360,19 +429,36 @@
             box-shadow: 0 0 15px var(--primary-glow);
         }
 
-        .step h3 { color: #fff; font-size: 1.5rem; margin-bottom: 0.5rem; }
-        .step p { color: var(--text-muted); margin-bottom: 1rem; }
-        
+        .step h3 {
+            color: #fff;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .step p {
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
         .step-meta {
-            background: rgba(255,255,255,0.03);
+            background: rgba(255, 255, 255, 0.03);
             border: 1px solid var(--border);
             padding: 1rem;
             border-radius: 8px;
             display: inline-block;
         }
 
-        .check-list p { display: flex; align-items: center; gap: 8px; font-size: 0.9rem; margin-bottom: 4px; }
-        .check-list span { color: var(--primary); }
+        .check-list p {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            margin-bottom: 4px;
+        }
+
+        .check-list span {
+            color: var(--primary);
+        }
 
         /* Download Section */
         .download-section {
@@ -388,7 +474,7 @@
         }
 
         .dl-card {
-            background: rgba(255,255,255,0.03);
+            background: rgba(255, 255, 255, 0.03);
             border: 1px solid var(--border);
             padding: 2rem;
             border-radius: 12px;
@@ -435,8 +521,13 @@
         }
 
         @keyframes ticker {
-            0% { transform: translate3d(0, 0, 0); }
-            100% { transform: translate3d(-50%, 0, 0); }
+            0% {
+                transform: translate3d(0, 0, 0);
+            }
+
+            100% {
+                transform: translate3d(-50%, 0, 0);
+            }
         }
 
         /* Footer */
@@ -455,53 +546,179 @@
             flex-wrap: wrap;
         }
 
-        .footer-links a { color: var(--text-muted); text-decoration: none; }
-        .footer-links a:hover { color: var(--primary); }
-        .copyright { color: #444; font-size: 0.9rem; }
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .copyright {
+            color: #444;
+            font-size: 0.9rem;
+        }
+
+        /* Mobile Menu Button */
+        .mobile-menu-btn {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .mobile-menu-btn span {
+            width: 25px;
+            height: 2px;
+            background: #fff;
+            transition: 0.3s;
+        }
+
+        /* Hamburger Animation */
+        .mobile-menu-btn.active span:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+
+        .mobile-menu-btn.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-btn.active span:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+
+        /* Mobile Menu Overlay */
+        .mobile-menu {
+            position: fixed;
+            top: 80px;
+            left: 0;
+            width: 100%;
+            height: calc(100vh - 80px);
+            background: rgba(5, 5, 5, 0.95);
+            backdrop-filter: blur(20px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            transform: translateY(-100%);
+            opacity: 0;
+            transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: 999;
+        }
+
+        .mobile-menu.active {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .mobile-menu a {
+            font-size: 1.5rem;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 700;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: 0.3s;
+        }
+
+        .mobile-menu.active a {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Links animation */
+        .mobile-menu.active a {
+            transition-delay: 0.2s;
+        }
+
+        .mobile-menu .btn-primary {
+            font-size: 1.2rem;
+            padding: 1rem 2rem;
+        }
 
         /* Responsive */
         @media (max-width: 900px) {
-            .bento-grid { grid-template-columns: 1fr; }
-            .span-2, .span-row-2 { grid-column: auto; grid-row: auto; }
-            .hero h1 { font-size: 2.5rem; }
-            .nav-links { display: none; } /* Simplified for demo */
+            .bento-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .span-2,
+            .span-row-2 {
+                grid-column: auto;
+                grid-row: auto;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: flex;
+            }
         }
     </style>
 </head>
+
 <body>
 
     <header>
         <div class="container">
             <nav>
                 <a href="#" class="logo">
-                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%231EA73F'/%3E%3Ccircle cx='50' cy='50' r='20' fill='none' stroke='white' stroke-width='8'/%3E%3C/svg%3E" alt="Logo">
-                    WeberxCam
+                    <img src="assets/logo.png" alt="Logo">
+                    Eazycam
                 </a>
                 <ul class="nav-links">
                     <li><a href="#features">Features</a></li>
-                    <li><a href="#how-it-works">How it Works</a></li>
+                    <li><a href="#how-it-works">How to Setup</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
                     <!-- <li><a href="#compatibility">Compatibility</a></li> -->
                     <li><a href="#download" class="btn btn-primary" style="color: white;">Download Free</a></li>
                 </ul>
+
+                <div class="mobile-menu-btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
             </nav>
         </div>
     </header>
 
+    <div class="mobile-menu">
+        <a href="#features">Features</a>
+        <a href="#how-it-works">How to setup</a>
+        <a href="faq.html">FAQ</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="/terms.html">Terms of Service</a>
+        <a href="/contact.html">Contact</a>
+        <a href="#download" class="btn btn-primary">Download Free</a>
+    </div>
+
     <section class="hero">
         <div class="container">
-            <span class="badge">Version 1.0 Now Available</span>
+            <span class="badge">Beta Version (v0.0.1) Now Available</span>
             <h1>Turn Your Phone Into<br><span class="text-gradient">A Pro Webcam</span></h1>
-            <p>Skip the expensive gear. Use your phone's superior camera for Zoom, OBS, and streaming in 1080p HD with ultra-low latency.</p>
-            
+            <p>Skip the expensive gear. Use your phone's superior camera for Zoom, OBS, and streaming in 1080p HD with
+                ultra-low latency.</p>
+
             <div class="hero-btns">
                 <a href="#download" class="btn btn-primary">Get Started Free</a>
-                <a href="#how-it-works" class="btn btn-outline">How it Works</a>
+                <a href="#how-it-works" class="btn btn-outline">How to setup</a>
             </div>
 
             <div class="device-wrapper">
                 <div class="device-screen">
                     <!-- Abstract representation of a camera feed -->
-                    <div style="text-align: center; color: #333; margin-top: 5rem; padding-left: 1rem; padding-right: 1rem;">
+                    <div
+                        style="text-align: center; color: #333; margin-top: 5rem; padding-left: 1rem; padding-right: 1rem;">
                         <div style="font-size: 3rem;  margin-bottom: 1rem; color: #1EA73F;">● REC</div>
                         <p style="font-family: 'JetBrains Mono'">1080p | ISO 200 | F1.8</p>
                     </div>
@@ -509,29 +726,6 @@
             </div>
         </div>
     </section>
-
-    <!-- <div class="stats-bar">
-        <div class="container">
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <h3>1M+</h3>
-                    <p>Downloads</p>
-                </div>
-                <div class="stat-item">
-                    <h3>4.8★</h3>
-                    <p>App Rating</p>
-                </div>
-                <div class="stat-item">
-                    <h3>150+</h3>
-                    <p>Countries</p>
-                </div>
-                <div class="stat-item">
-                    <h3>0ms</h3>
-                    <p>Lag Aim</p>
-                </div>
-            </div>
-        </div>
-    </div> -->
 
     <!-- Compatibility Ticker -->
     <div class="ticker-wrap">
@@ -559,34 +753,32 @@
             <div class="section-header">
                 <span class="badge">Features</span>
                 <h2>Professional Video Control</h2>
-                <p>Webcamo isn't just a mirror. It gives you DSLR-like control over your smartphone camera feed.</p>
+                <p>Eazycam isn't just a mirror. It gives you DSLR-like control over your smartphone camera feed.</p>
             </div>
 
             <div class="bento-grid">
                 <div class="card span-2">
                     <div class="card-icon">⚡</div>
                     <h3>Ultra Low Latency</h3>
-                    <p>Whether you use USB or WiFi, our custom encoding engine ensures your video syncs perfectly with your audio. Ideal for gaming and live interviews.</p>
+                    <p>Whether you use USB or WiFi, our custom encoding engine ensures your video syncs perfectly with
+                        your audio. Ideal for gaming and live interviews.</p>
                 </div>
                 <div class="card">
                     <div class="card-icon">🎥</div>
-                    <h3>4K & 1080p</h3>
+                    <h3>FHD 1080p</h3>
                     <p>Don't settle for grainy 720p. Stream in full crisp HD resolution.</p>
                 </div>
-                <div class="card">
-                    <div class="card-icon">🎛️</div>
-                    <h3>Manual Controls</h3>
-                    <p>Switch Camera, Flash Control, and Switch Mirror Image to get the perfect lighting.</p>
-                </div>
-                <div class="card span-2">
-                    <div class="card-icon">🔗</div>
-                    <h3>Wireless Freedom</h3>
-                    <p>Connect via WiFi to move around the room, or plug in via USB for a bulletproof connection during important meetings.</p>
-                </div>
+                <!-- Swapped Card -->
                 <div class="card">
                     <div class="card-icon">🔌</div>
                     <h3>OBS Native</h3>
                     <p>Direct plugin integration for OBS Studio for better performance.</p>
+                </div>
+                <div class="card span-2">
+                    <div class="card-icon">🔗</div>
+                    <h3>Wireless Freedom</h3>
+                    <p>Connect via WiFi to move around the room, or plug in via USB for a bulletproof connection during
+                        important meetings.</p>
                 </div>
             </div>
         </div>
@@ -598,25 +790,24 @@
                 <span class="badge">Setup</span>
                 <h2>Ready in 3 Minutes</h2>
             </div>
-            
+
             <div class="timeline">
                 <div class="step">
                     <div class="step-number">1</div>
                     <h3>Get the App</h3>
-                    <p>Install Webcamo on your mobile device. It's lightweight and detects your camera hardware automatically.</p>
+                    <p>Install Eazycam on your mobile device. It's lightweight and detects your camera hardware
+                        automatically.</p>
                     <div class="step-meta check-list">
                         <p><span>✓</span> Android 7.0+</p>
                         <!-- <p><span>✓</span> iOS 12.0+</p> -->
                     </div>
                 </div>
-                
+
                 <div class="step">
                     <div class="step-number">2</div>
                     <h3>Install PC Client</h3>
-                    <p>Download the zip file below</p>
-                    <p>Extract the folder and run "install.bat" file to install virtual camera driver.</p>
-                    <p>A restart will be performed to register virtual camera camera.</p>
-                    <p>Open "Webcamo Desktop.exe" file to run the application</p>
+                    <p>Download the "eazycam.exe" file</p>
+                    <p>Install and run, that's it!</p>
                     <div class="step-meta check-list">
                         <p><span>✓</span> Windows 10/11</p>
                         <!-- <p><span>✓</span> macOS & Linux</p> -->
@@ -625,10 +816,10 @@
                 <div class="step">
                     <div class="step-number">3</div>
                     <h3>Connect & Stream</h3>
-                    <p>Open the app on both devices. Connect via USB or WiFi, and select "Webcamo" in Zoom/OBS.</p>
+                    <p>Open the app on both devices. Connect via USB or WiFi, and select "UnityCapture" as a camera.</p>
                     <div class="step-meta check-list">
-                        <p><span>✓</span> Auto-Discovery</p>
                         <p><span>✓</span> Instant Sync</p>
+                        <p><span>✓</span> Full-control</p>
                     </div>
                 </div>
             </div>
@@ -646,8 +837,9 @@
             <div class="download-grid">
                 <div class="dl-card">
                     <h3>Android App</h3>
-                    <span class="dl-version">v1.1.0</span>
-                    <a href="https://github.com/Adarsh1o1/webcamo/releases/download/Webcamo/Webcamo.apk" class="btn btn-primary">Download App</a>
+                    <span class="dl-version">v0.0.1 (beta)</span>
+                    <a href="https://github.com/Adarsh1o1/Eazycam/releases/download/Eazycam/Eazycam.apk"
+                        class="btn btn-primary">Download App</a>
                 </div>
                 <!-- <div class="dl-card">
                     <h3>iOS App</h3>
@@ -656,8 +848,9 @@
                 </div> -->
                 <div class="dl-card">
                     <h3>Windows Client</h3>
-                    <span class="dl-version">v1.1.0 (x64)</span>
-                    <a href="https://github.com/Adarsh1o1/webcamo/releases/download/WebcamoDesktop/Webcamo.Desktop-20251124T104917Z-1-001.zip" class="btn btn-primary">Download Setup</a>
+                    <span class="dl-version">v0.0.1 (beta)</span>
+                    <a href="https://github.com/Adarsh1o1/Eazycam/releases/download/EazycamDesktop/Eazycam.Desktop-20251124T104917Z-1-001.zip"
+                        class="btn btn-primary">Download Setup</a>
                 </div>
                 <!-- <div class="dl-card">
                     <h3>Linux / Mac</h3>
@@ -676,7 +869,7 @@
                 <!-- <a href="#">Help Center</a> -->
                 <a href="/contact.html">Contact</a>
             </div>
-            <p class="copyright">© 2025 Webcamo. All rights reserved.</p>
+            <p class="copyright">© 2025 Eazycam. All rights reserved.</p>
         </div>
     </footer>
 
@@ -691,7 +884,27 @@
                 card.style.setProperty('--mouse-y', `${y}px`);
             });
         });
-    </script>
 
+        // Mobile Menu Toggle
+        const menuBtn = document.querySelector('.mobile-menu-btn');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const menuLinks = document.querySelectorAll('.mobile-menu a');
+
+        menuBtn.addEventListener('click', () => {
+            menuBtn.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+        });
+
+        // Close menu when clicking a link
+        menuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menuBtn.classList.remove('active');
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+    </script>
 </body>
+
 </html>

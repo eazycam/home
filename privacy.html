@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy - Webcamo</title>
+    <title>Privacy Policy - Eazycam</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400&display=swap"
+        rel="stylesheet">
     <style>
         /* Shared Theme CSS */
         :root {
@@ -19,15 +22,19 @@
             --text-muted: #888;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
         body {
             font-family: "DM Sans", sans-serif;
             background: var(--bg);
             color: var(--text);
             line-height: 1.6;
-            background-image: 
-                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), 
+            background-image:
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
             background-size: 50px 50px;
             min-height: 100vh;
@@ -35,8 +42,12 @@
             flex-direction: column;
         }
 
-        .container { max-width: 1280px; margin: 0 auto; padding: 0 2rem; }
-        
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
         .badge {
             display: inline-flex;
             align-items: center;
@@ -62,30 +73,84 @@
             border-bottom: 1px solid var(--border);
         }
 
-        nav { height: 80px; display: flex; justify-content: space-between; align-items: center; }
+        nav {
+            height: 80px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
         .logo {
-            display: flex; align-items: center; gap: 0.8rem;
-            font-weight: 700; font-size: 1.5rem; color: #fff; text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: #fff;
+            text-decoration: none;
         }
-        .logo img { width: 40px; height: 40px; }
 
-        .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
-        .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.95rem; transition: color 0.3s; }
-        .nav-links a:hover { color: #fff; }
+        .logo img {
+            width: 40px;
+            height: 30px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #fff;
+        }
 
         .btn-primary {
-            padding: 0.8rem 1.5rem; border-radius: 8px; font-weight: 600; text-decoration: none;
-            background: var(--primary); color: #fff; border: 1px solid transparent; transition: 0.3s;
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            background: var(--primary);
+            color: #fff;
+            border: 1px solid transparent;
+            transition: 0.3s;
         }
-        .btn-primary:hover { background: #17903a; box-shadow: 0 0 20px rgba(30, 167, 63, 0.4); }
+
+        .btn-primary:hover {
+            background: #17903a;
+            box-shadow: 0 0 20px rgba(30, 167, 63, 0.4);
+        }
 
         /* Content Styles */
-        .legal-section { padding-top: 140px; padding-bottom: 80px; flex: 1; }
-        
-        .page-header { text-align: center; margin-bottom: 4rem; }
-        .page-header h1 { font-size: clamp(2rem, 4vw, 3.5rem); color: #fff; margin-bottom: 1rem; }
-        .page-header p { color: var(--text-muted); font-family: 'JetBrains Mono', monospace; }
+        .legal-section {
+            padding-top: 140px;
+            padding-bottom: 80px;
+            flex: 1;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .page-header h1 {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            color: #fff;
+            margin-bottom: 1rem;
+        }
+
+        .page-header p {
+            color: var(--text-muted);
+            font-family: 'JetBrains Mono', monospace;
+        }
 
         .legal-container {
             background: var(--surface);
@@ -101,97 +166,281 @@
 
         /* Glow Logic */
         .legal-container::before {
-            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             background: radial-gradient(800px circle at var(--mouse-x) var(--mouse-y), rgba(30, 167, 63, 0.06), transparent 40%);
-            z-index: 1; opacity: 0; transition: opacity 0.5s; pointer-events: none;
+            z-index: 1;
+            opacity: 0;
+            transition: opacity 0.5s;
+            pointer-events: none;
         }
-        .legal-container:hover::before { opacity: 1; }
-        .legal-container:hover { border-color: rgba(30, 167, 63, 0.3); }
 
-        .content-wrapper { position: relative; z-index: 2; }
-        
-        .legal-block { margin-bottom: 2.5rem; }
-        .legal-block h2 { color: #fff; font-size: 1.5rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 10px; }
-        .legal-block h2::before { content: '§'; color: var(--primary); font-family: 'JetBrains Mono'; }
-        .legal-block p { margin-bottom: 1rem; color: var(--text-muted); }
-        .legal-block ul { padding-left: 1.5rem; color: var(--text-muted); }
-        .legal-block li { margin-bottom: 0.5rem; }
+        .legal-container:hover::before {
+            opacity: 1;
+        }
+
+        .legal-container:hover {
+            border-color: rgba(30, 167, 63, 0.3);
+        }
+
+        .content-wrapper {
+            position: relative;
+            z-index: 2;
+        }
+
+        .legal-block {
+            margin-bottom: 2.5rem;
+        }
+
+        .legal-block h2 {
+            color: #fff;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .legal-block h2::before {
+            content: '§';
+            color: var(--primary);
+            font-family: 'JetBrains Mono';
+        }
+
+        .legal-block p {
+            margin-bottom: 1rem;
+            color: var(--text-muted);
+        }
+
+        .legal-block ul {
+            padding-left: 1.5rem;
+            color: var(--text-muted);
+        }
+
+        .legal-block li {
+            margin-bottom: 0.5rem;
+        }
 
         /* Footer */
-        footer { padding: 4rem 0 2rem; border-top: 1px solid var(--border); background: #050505; text-align: center; margin-top: auto; }
-        .footer-links { display: flex; justify-content: center; gap: 2rem; margin-bottom: 2rem; }
-        .footer-links a { color: var(--text-muted); text-decoration: none; }
-        .footer-links a:hover { color: var(--primary); }
-        .copyright { color: #444; font-size: 0.9rem; }
+        footer {
+            padding: 4rem 0 2rem;
+            border-top: 1px solid var(--border);
+            background: #050505;
+            text-align: center;
+            margin-top: auto;
+        }
 
-        @media (max-width: 768px) {
-            .legal-container { padding: 1.5rem; }
-            .nav-links { display: none; }
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .copyright {
+            color: #444;
+            font-size: 0.9rem;
+        }
+
+        /* Mobile Menu Button */
+        .mobile-menu-btn {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .mobile-menu-btn span {
+            width: 25px;
+            height: 2px;
+            background: #fff;
+            transition: 0.3s;
+        }
+
+        /* Hamburger Animation */
+        .mobile-menu-btn.active span:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+
+        .mobile-menu-btn.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-btn.active span:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+
+        /* Mobile Menu Overlay */
+        .mobile-menu {
+            position: fixed;
+            top: 80px;
+            left: 0;
+            width: 100%;
+            height: calc(100vh - 80px);
+            background: rgba(5, 5, 5, 0.95);
+            backdrop-filter: blur(20px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            transform: translateY(-100%);
+            opacity: 0;
+            transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: 999;
+        }
+
+        .mobile-menu.active {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .mobile-menu a {
+            font-size: 1.5rem;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 700;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: 0.3s;
+        }
+
+        .mobile-menu.active a {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Links animation */
+        .mobile-menu.active a {
+            transition-delay: 0.2s;
+        }
+
+        .mobile-menu .btn-primary {
+            font-size: 1.2rem;
+            padding: 1rem 2rem;
+        }
+
+        @media (max-width: 900px) {
+            .legal-container {
+                padding: 1.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: flex;
+            }
         }
     </style>
 </head>
+
 <body>
 
     <header>
         <div class="container">
             <nav>
                 <a href="index.html" class="logo">
-                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%231EA73F'/%3E%3Ccircle cx='50' cy='50' r='20' fill='none' stroke='white' stroke-width='8'/%3E%3C/svg%3E" alt="Logo">
-                    Webcamo
+                    <img src="assets/logo.png" alt="Logo">
+                    Eazycam
                 </a>
                 <ul class="nav-links">
                     <li><a href="index.html">Home</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
                     <li><a href="contact.html">Contact</a></li>
-                    <li><a href="index.html#download" class="btn-primary">Download</a></li>
+                    <li><a href="index.html#download" class="btn-primary" style="color: white;">Download</a></li>
                 </ul>
+                <div class="mobile-menu-btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
             </nav>
         </div>
     </header>
+
+    <div class="mobile-menu">
+        <a href="index.html">Home</a>
+        <a href="faq.html">FAQ</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+        <a href="contact.html">Contact</a>
+        <a href="index.html#download" class="btn btn-primary">Download Free</a>
+    </div>
 
     <section class="legal-section">
         <div class="container">
             <div class="page-header">
                 <span class="badge">Security</span>
                 <h1>Privacy Policy</h1>
-                <p>Last Updated: November 23, 2025</p>
+                <p>Last Updated: December 6, 2025</p>
             </div>
 
             <div class="legal-container" id="legal-card">
                 <div class="content-wrapper">
                     <div class="legal-block">
                         <h2>1. Introduction</h2>
-                        <p>At Webcamo, we believe your video feed belongs to you. This Privacy Policy explains how Webcamo ("we", "us", or "our") handles your information when you use our mobile application and desktop client.</p>
+                        <p>At Eazycam, we believe your video feed belongs to you. This Privacy Policy explains how
+                            Eazycam ("we", "us", or "our") handles your information when you use our mobile application
+                            and desktop client.</p>
                     </div>
 
                     <div class="legal-block">
                         <h2>2. Data We Do Not Collect</h2>
-                        <p><strong>We do not record, store, or transmit your video or audio stream to our servers.</strong></p>
-                        <p>Webcamo operates strictly over your local network (LAN) or via USB connection. The video data flows directly from your phone to your computer. It never touches the internet or a cloud server.</p>
+                        <p><strong>We do not record, store, or transmit your video or audio stream to our
+                                servers.</strong></p>
+                        <p>Eazycam operates strictly over your local network (LAN) or via USB connection. The video data
+                            flows directly from your phone to your computer. It never touches the internet or a cloud
+                            server.</p>
                     </div>
 
                     <div class="legal-block">
                         <h2>3. Device Permissions</h2>
                         <p>To function, the app requires specific permissions on your mobile device:</p>
                         <ul>
-                            <li><strong>Camera:</strong> Required to capture video. This data is streamed instantly to your connected PC client.</li>
-                            <li><strong>Microphone:</strong> Required if you choose to use your phone as a PC microphone.</li>
-                            <li><strong>Local Network:</strong> Required to discover and connect to your computer wirelessly.</li>
+                            <li><strong>Camera:</strong> Required to capture video. This data is streamed instantly to
+                                your connected PC client.</li>
+                            <li><strong>Microphone:</strong> Required if you choose to use your phone as a PC
+                                microphone.</li>
+                            <li><strong>Local Network:</strong> Required to discover and connect to your computer
+                                wirelessly.</li>
                         </ul>
                     </div>
 
                     <div class="legal-block">
                         <h2>4. Analytics</h2>
-                        <p>We may collect anonymous, aggregated usage data to help us improve the app stability. This includes crash reports and connection success rates. This data is stripped of all personal identifiers before being sent to our analytics provider.</p>
+                        <p>We may collect anonymous, aggregated usage data to help us improve the app stability. This
+                            includes crash reports and connection success rates. This data is stripped of all personal
+                            identifiers before being sent to our analytics provider.</p>
                     </div>
 
                     <div class="legal-block">
                         <h2>5. Third-Party Services</h2>
-                        <p>Once the video feed reaches your computer, it acts as a standard webcam driver. Any video you broadcast to third-party applications (like Zoom, Discord, or OBS) is subject to the privacy policies of those respective applications.</p>
+                        <p>Once the video feed reaches your computer, it acts as a standard webcam driver. Any video you
+                            broadcast to third-party applications (like Zoom, Discord, or OBS) is subject to the privacy
+                            policies of those respective applications.</p>
                     </div>
 
                     <div class="legal-block">
                         <h2>6. Contact Us</h2>
-                        <p>If you have questions about your privacy, please contact us at <a href="mailto:privacy@webcamo.app" style="color:var(--primary)">privacy@webcamo.app</a>.</p>
+                        <p>If you have questions about your privacy, please contact us at <a
+                                href="mailto:eazycam.app@gmail.com" style="color:var(--primary)">eazycam.app@gmail.com</a>.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -205,13 +454,13 @@
                 <a href="terms.html">Terms of Service</a>
                 <a href="contact.html">Contact</a>
             </div>
-            <p class="copyright">© 2025 Webcamo. All rights reserved.</p>
+            <p class="copyright">© 2025 Eazycam. All rights reserved.</p>
         </div>
     </footer>
 
     <script>
         const card = document.getElementById('legal-card');
-        if(card) {
+        if (card) {
             card.addEventListener('mousemove', e => {
                 const rect = card.getBoundingClientRect();
                 const x = e.clientX - rect.left;
@@ -220,7 +469,29 @@
                 card.style.setProperty('--mouse-y', `${y}px`);
             });
         }
+
+        // Mobile Menu Toggle
+        const menuBtn = document.querySelector('.mobile-menu-btn');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const menuLinks = document.querySelectorAll('.mobile-menu a');
+
+        if (menuBtn) {
+            menuBtn.addEventListener('click', () => {
+                menuBtn.classList.toggle('active');
+                mobileMenu.classList.toggle('active');
+                document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+            });
+
+            menuLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    menuBtn.classList.remove('active');
+                    mobileMenu.classList.remove('active');
+                    document.body.style.overflow = '';
+                });
+            });
+        }
     </script>
 
 </body>
+
 </html>
