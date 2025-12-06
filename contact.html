@@ -512,10 +512,12 @@
 
                 <!-- Contact Form -->
                 <div class="form-card glow-effect">
-                    <form class="form-content" action="https://api.web3forms.com/submit" method="POST">
+
+                    <form id="contact-form" class="form-content">
 
                         <input type="hidden" name="access_key" value="1588f3d7-48cf-4586-a86d-c1649a8bd053">
-                        <input type="hidden" name="redirect" value="https://eazycam.github.io/home/success.html">
+
+                        <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
 
                         <div class="form-group">
                             <label class="form-label">Name</label>
@@ -537,10 +539,12 @@
                             <textarea placeholder="Describe your issue in detail..." name="message" required></textarea>
                         </div>
 
-                        <button type="submit" class="btn-primary"
-                            style="width: 100%; border: none; font-size: 1rem;">Send Message</button>
+                        <button type="submit" class="btn-primary" style="width: 100%; border: none; font-size: 1rem;">Send Message</button>
+                        
+                        <div id="result" style="margin-top:10px; color: white;"></div>
+
                     </form>
-                </div>
+                 </div>
             </div>
         </div>
     </section>
@@ -557,7 +561,6 @@
     </footer>
 
     <script>
-        // Apply glow effect to both cards
         document.querySelectorAll('.glow-effect').forEach(card => {
             card.addEventListener('mousemove', e => {
                 const rect = card.getBoundingClientRect();
@@ -588,6 +591,52 @@
                 });
             });
         }
+
+        const form = document.getElementById('contact-form');
+        const result = document.getElementById('result');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const submitButton = form.querySelector('button[type="submit"]');
+            const originalButtonText = submitButton.innerText;
+            submitButton.innerText = "Sending...";
+            submitButton.disabled = true;
+
+            const formData = new FormData(form);
+            const object = Object.fromEntries(formData);
+            const json = JSON.stringify(object);
+
+            result.innerHTML = "Please wait...";
+
+            fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: json
+            })
+            .then(async (response) => {
+                let json = await response.json();
+                if (response.status == 200) {
+                    window.location.href = "success.html";
+                } else {
+                    console.log(response);
+                    result.innerHTML = json.message;
+                    result.style.color = "red";
+                    submitButton.innerText = originalButtonText;
+                    submitButton.disabled = false;
+                }
+            })
+            .catch(error => {
+                console.log(error);
+                result.innerHTML = "Something went wrong!";
+                result.style.color = "red";
+                submitButton.innerText = originalButtonText;
+                submitButton.disabled = false;
+            });
+        });
     </script>
 
 </body>

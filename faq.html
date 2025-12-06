@@ -511,7 +511,6 @@
     </footer>
 
     <script>
-        // Mobile Menu Toggle
         const menuBtn = document.querySelector('.mobile-menu-btn');
         const mobileMenu = document.querySelector('.mobile-menu');
         const menuLinks = document.querySelectorAll('.mobile-menu a');
@@ -522,7 +521,6 @@
             document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
         });
 
-        // Close menu when clicking a link
         menuLinks.forEach(link => {
             link.addEventListener('click', () => {
                 menuBtn.classList.remove('active');
@@ -531,7 +529,6 @@
             });
         });
 
-        // FAQ Accordion Logic
         const faqItems = document.querySelectorAll('.faq-item');
 
         faqItems.forEach(item => {
@@ -539,12 +536,10 @@
             question.addEventListener('click', () => {
                 const isActive = item.classList.contains('active');
 
-                // Close all other items
                 faqItems.forEach(otherItem => {
                     otherItem.classList.remove('active');
                 });
 
-                // Toggle current item
                 if (!isActive) {
                     item.classList.add('active');
                 }
