@@ -1,4 +1,4 @@
-const firebaseConfig = {
+export const firebaseConfig = {
   apiKey: "__FIREBASE_API_KEY__",
   authDomain: "__FIREBASE_AUTH_DOMAIN__",
   projectId: "__FIREBASE_PROJECT_ID__",
@@ -7,5 +7,3 @@ const firebaseConfig = {
   appId: "__FIREBASE_APP_ID__",
   measurementId: "__FIREBASE_MEASUREMENT_ID__"
 };
-
-export default firebaseConfig;
