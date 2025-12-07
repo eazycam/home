@@ -800,6 +800,55 @@
             z-index: 1;
         }
 
+        /* Waitlist Stats */
+        .waitlist-stats {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2.5rem;
+            animation: fadeInUp 0.8s ease-out 0.4s backwards;
+        }
+
+        .avatar-stack {
+            display: flex;
+            align-items: center;
+        }
+
+        .avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 3px solid #0c0d0e;
+            margin-left: -14px;
+            position: relative;
+            transition: transform 0.2s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .avatar:first-child {
+            margin-left: 0;
+        }
+
+        .avatar:hover {
+            transform: translateY(-4px) scale(1.1);
+            z-index: 10;
+        }
+
+        .stats-text {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1rem;
+            font-weight: 400;
+            white-space: nowrap;
+        }
+
+        .stats-text strong {
+            color: #fff;
+            font-weight: 600;
+        }
+
+        /* Social Media Buttons */
+
         .waitlist-socials {
             display: flex;
             gap: 1rem;
@@ -1109,7 +1158,7 @@
                     <!-- Abstract representation of a camera feed -->
                     <div
                         style="text-align: center; color: #333; margin-top: 5rem; padding-left: 1rem; padding-right: 1rem;">
-                        <div style="font-size: 3rem;  margin-bottom: 1rem; color: #1EA73F;">● REC</div>
+                        <div style="font-size: 3rem;  margin-bottom: 1rem; color: #1EA73F;">● LIVE</div>
                         <p style="font-family: 'JetBrains Mono'">1080p | ISO 200 | F1.8</p>
                     </div>
                 </div>
@@ -1266,7 +1315,7 @@
                 <h2>Join our waitlist!</h2>
                 <p>Get early access to our upcoming release and secure your spot on the waitlist.</p>
 
-                <form class="input-group" id="waitlistForm">
+                <form class="input-group" id="waitlistForm" onsubmit="return false;">
                     <div class="input-wrapper">
                         <input type="email" id="emailInput" placeholder="Enter email" required>
                     </div>
@@ -1274,6 +1323,16 @@
                         <span id="btnText">Join Waitlist</span>
                     </button>
                 </form>
+                <div class="waitlist-stats">
+                    <div class="avatar-stack">
+                        <img src="https://avatar.iran.liara.run/public/34" alt="User" class="avatar">
+                        <img src="https://avatar.iran.liara.run/public/84" alt="User" class="avatar">
+                        <img src="https://avatar.iran.liara.run/public/15" alt="User" class="avatar">
+                    </div>
+                    <div class="stats-text">
+                        <strong id="userCount">0+</strong> have already joined
+                    </div>
+                </div>
             </div>
 
             <!-- <div class="waitlist-socials">
@@ -1321,7 +1380,7 @@
         // Import the functions you need from the SDKs you need
         import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
         import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-analytics.js";
-        import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore.js";
+        import { getFirestore, collection, addDoc, serverTimestamp, getCountFromServer } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore.js";
 
         // Import credentials securely
         import { firebaseConfig } from "./firebase-config.js";
@@ -1330,6 +1389,25 @@
         const app = initializeApp(firebaseConfig);
         const analytics = getAnalytics(app);
         const db = getFirestore(app);
+
+        // Function to fetch and update waitlist count
+        async function updateWaitlistCount() {
+            try {
+                const waitlistRef = collection(db, "waitlist");
+                const snapshot = await getCountFromServer(waitlistRef);
+                const count = snapshot.data().count;
+
+                // Display count with "+" suffix
+                const userCountElement = document.getElementById('userCount');
+                userCountElement.textContent = `${count}+`;
+            } catch (error) {
+                console.error("Error fetching count: ", error);
+                document.getElementById('userCount').textContent = '0+';
+            }
+        }
+
+        // Load count on page load
+        updateWaitlistCount();
 
         // Waitlist Form Logic
         const form = document.getElementById('waitlistForm');
@@ -1368,6 +1446,7 @@
                     setTimeout(() => {
                         btnText.textContent = 'Join Waitlist';
                         submitBtn.classList.remove('success');
+                        updateWaitlistCount();
                     }, 2000);
 
                 } catch (error) {
