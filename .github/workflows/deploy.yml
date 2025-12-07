@@ -12,6 +12,11 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+
+      - name: Show original file
+        run: |
+          echo "=== BEFORE replacement ==="
+          cat firebase-config.js
       
       - name: Replace Firebase config placeholders
         run: |
@@ -23,6 +28,11 @@ jobs:
           sed -i 's/__FIREBASE_APP_ID__/${{ secrets.FIREBASE_APP_ID }}/g' firebase-config.js
           sed -i 's/__FIREBASE_MEASUREMENT_ID__/${{ secrets.FIREBASE_MEASUREMENT_ID }}/g' firebase-config.js
       
+      - name: Show modified file
+        run: |
+          echo "=== AFTER replacement ==="
+          cat firebase-config.js
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
