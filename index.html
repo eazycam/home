@@ -901,6 +901,23 @@
             }
         }
 
+        /* Responsive Height Fix */
+        @media (max-height: 800px) and (min-width: 769px) {
+            .waitlist-section {
+                padding: 4rem 0;
+            }
+
+            /* Adjust header size for short screens */
+            .waitlist-header {
+                font-size: 4rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .waitlist-card {
+                padding: 2.5rem;
+            }
+        }
+
         /* Compatibility */
         .ticker-wrap {
             overflow: hidden;
@@ -1247,7 +1264,7 @@
 
             <div class="card waitlist-card">
                 <h2>Join our waitlist!</h2>
-                <p>Sign up for our newsletter to receive the latest updates and insights straight to your inbox.</p>
+                <p>Get early access to our upcoming release and secure your spot on the waitlist.</p>
 
                 <form class="input-group" id="waitlistForm">
                     <div class="input-wrapper">
