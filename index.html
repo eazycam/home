@@ -686,39 +686,7 @@
 
 <body>
 
-    <header>
-        <div class="container">
-            <nav>
-                <a href="#" class="logo">
-                    <img src="assets/logo.png" alt="Logo">
-                    Eazycam
-                </a>
-                <ul class="nav-links">
-                    <li><a href="#features">Features</a></li>
-                    <li><a href="#how-it-works">How to Setup</a></li>
-                    <li><a href="faq.html">FAQ</a></li>
-                    <!-- <li><a href="#compatibility">Compatibility</a></li> -->
-                    <li><a href="#download" class="btn btn-primary" style="color: white;">Download Free</a></li>
-                </ul>
-
-                <div class="mobile-menu-btn">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </nav>
-        </div>
-    </header>
-
-    <div class="mobile-menu">
-        <a href="#features">Features</a>
-        <a href="#how-it-works">How to setup</a>
-        <a href="faq.html">FAQ</a>
-        <a href="privacy.html">Privacy Policy</a>
-        <a href="terms.html">Terms of Service</a>
-        <a href="contact.html">Contact</a>
-        <a href="#download" class="btn btn-primary">Download Free</a>
-    </div>
+    <div id="navbar-placeholder"></div>
 
     <section class="hero">
         <div class="container">
@@ -858,7 +826,7 @@
                     <span class="dl-version">v3.2.1</span>
                     <a href="#" class="btn btn-primary">App Store</a>
                 </div> -->
-                
+
                 <div class="dl-card">
                     <h3>Windows Client</h3>
                     <span class="dl-version">v0.1.0 (beta)</span>
@@ -874,18 +842,9 @@
         </div>
     </section>
 
-    <footer>
-        <div class="container">
-            <div class="footer-links">
-                <a href="privacy.html">Privacy Policy</a>
-                <a href="terms.html">Terms of Service</a>
-                <!-- <a href="#">Help Center</a> -->
-                <a href="contact.html">Contact</a>
-            </div>
-            <p class="copyright">© 2025 Eazycam. All rights reserved.</p>
-        </div>
-    </footer>
-
+    <div id="footer-placeholder"></div>
+    
+    <script src="assets/components.js"></script>
     <script>
         // Simple hover effect for bento grid cards to track mouse position
         document.querySelectorAll('.card').forEach(card => {
@@ -895,26 +854,6 @@
                 const y = e.clientY - rect.top;
                 card.style.setProperty('--mouse-x', `${x}px`);
                 card.style.setProperty('--mouse-y', `${y}px`);
-            });
-        });
-
-        // Mobile Menu Toggle
-        const menuBtn = document.querySelector('.mobile-menu-btn');
-        const mobileMenu = document.querySelector('.mobile-menu');
-        const menuLinks = document.querySelectorAll('.mobile-menu a');
-
-        menuBtn.addEventListener('click', () => {
-            menuBtn.classList.toggle('active');
-            mobileMenu.classList.toggle('active');
-            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
-        });
-
-        // Close menu when clicking a link
-        menuLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                menuBtn.classList.remove('active');
-                mobileMenu.classList.remove('active');
-                document.body.style.overflow = '';
             });
         });
     </script>

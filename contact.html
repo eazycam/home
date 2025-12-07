@@ -351,7 +351,6 @@
             border-top: 1px solid var(--border);
             background: #050505;
             text-align: center;
-            margin-top: auto;
         }
 
         .footer-links {
@@ -359,6 +358,7 @@
             justify-content: center;
             gap: 2rem;
             margin-bottom: 2rem;
+            flex-wrap: wrap;
         }
 
         .footer-links a {
@@ -366,10 +366,15 @@
             text-decoration: none;
         }
 
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
         .copyright {
             color: #444;
             font-size: 0.9rem;
         }
+
 
         /* Mobile Menu Button */
         .mobile-menu-btn {
@@ -468,36 +473,7 @@
 
 <body>
 
-    <header>
-        <div class="container">
-            <nav>
-                <a href="index.html" class="logo">
-                    <img src="assets/logo.png" alt="Logo">
-                    Eazycam
-                </a>
-                <ul class="nav-links">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="faq.html">FAQ</a></li>
-                    <li><a href="terms.html">Terms of Service</a></li>
-                    <li><a href="index.html#download" class="btn-primary" style="color: white;">Download</a></li>
-                </ul>
-                <div class="mobile-menu-btn">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </nav>
-        </div>
-    </header>
-
-    <div class="mobile-menu">
-        <a href="index.html">Home</a>
-        <a href="faq.html">FAQ</a>
-        <a href="privacy.html">Privacy Policy</a>
-        <a href="terms.html">Terms of Service</a>
-        <a href="contact.html">Contact</a>
-        <a href="index.html#download" class="btn btn-primary">Download Free</a>
-    </div>
+    <div id="navbar-placeholder"></div>
 
     <section class="contact-section">
         <div class="container">
@@ -569,17 +545,9 @@
         </div>
     </section>
 
-    <footer>
-        <div class="container">
-            <div class="footer-links">
-                <a href="privacy.html">Privacy Policy</a>
-                <a href="terms.html">Terms of Service</a>
-                <a href="contact.html">Contact</a>
-            </div>
-            <p class="copyright">© 2025 Eazycam. All rights reserved.</p>
-        </div>
-    </footer>
+    <div id="footer-placeholder"></div>
 
+    <script src="assets/components.js"></script>
     <script>
         document.querySelectorAll('.glow-effect').forEach(card => {
             card.addEventListener('mousemove', e => {
@@ -590,27 +558,6 @@
                 card.style.setProperty('--mouse-y', `${y}px`);
             });
         });
-
-        // Mobile Menu Toggle
-        const menuBtn = document.querySelector('.mobile-menu-btn');
-        const mobileMenu = document.querySelector('.mobile-menu');
-        const menuLinks = document.querySelectorAll('.mobile-menu a');
-
-        if (menuBtn) {
-            menuBtn.addEventListener('click', () => {
-                menuBtn.classList.toggle('active');
-                mobileMenu.classList.toggle('active');
-                document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
-            });
-
-            menuLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    menuBtn.classList.remove('active');
-                    mobileMenu.classList.remove('active');
-                    document.body.style.overflow = '';
-                });
-            });
-        }
 
         const form = document.getElementById('contact-form');
         const result = document.getElementById('result');

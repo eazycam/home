@@ -405,39 +405,7 @@
 
 <body>
 
-    <header>
-        <div class="container">
-            <nav>
-                <a href="index.html" class="logo">
-                    <img src="assets/logo.png" alt="Logo">
-                    Eazycam
-                </a>
-                <ul class="nav-links">
-                    <li><a href="index.html#features">Features</a></li>
-                    <li><a href="index.html#how-it-works">How it Works</a></li>
-                    <li><a href="contact.html">Contact Us</a></li>
-                    <li><a href="index.html#download" class="btn btn-primary" style="color: white;">Download Free</a>
-                    </li>
-                </ul>
-
-                <div class="mobile-menu-btn">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </nav>
-        </div>
-    </header>
-
-    <div class="mobile-menu">
-        <a href="index.html#features">Features</a>
-        <a href="index.html#how-it-works">How it Works</a>
-        <a href="faq.html">FAQ</a>
-        <a href="privacy.html">Privacy Policy</a>
-        <a href="terms.html">Terms of Service</a>
-        <a href="contact.html">Contact</a>
-        <a href="index.html#download" class="btn btn-primary">Download Free</a>
-    </div>
+    <div id="navbar-placeholder"></div>
 
     <section class="faq-section">
         <div class="container">
@@ -517,35 +485,10 @@
         </div>
     </section>
 
-    <footer>
-        <div class="container">
-            <div class="footer-links">
-                <a href="privacy.html">Privacy Policy</a>
-                <a href="terms.html">Terms of Service</a>
-                <a href="contact.html">Contact</a>
-            </div>
-            <p class="copyright">© 2025 Eazycam. All rights reserved.</p>
-        </div>
-    </footer>
+    <div id="footer-placeholder"></div>
 
+    <script src="assets/components.js"></script>
     <script>
-        const menuBtn = document.querySelector('.mobile-menu-btn');
-        const mobileMenu = document.querySelector('.mobile-menu');
-        const menuLinks = document.querySelectorAll('.mobile-menu a');
-
-        menuBtn.addEventListener('click', () => {
-            menuBtn.classList.toggle('active');
-            mobileMenu.classList.toggle('active');
-            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
-        });
-
-        menuLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                menuBtn.classList.remove('active');
-                mobileMenu.classList.remove('active');
-                document.body.style.overflow = '';
-            });
-        });
 
         const faqItems = document.querySelectorAll('.faq-item');
 
