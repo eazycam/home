@@ -241,7 +241,7 @@
         .faq-answer-wrapper {
             display: grid;
             grid-template-rows: 0fr;
-            transition: grid-template-rows 0.3s ease-out;
+            transition: grid-template-rows 0.25s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .faq-item.active .faq-answer-wrapper {
@@ -252,14 +252,6 @@
             overflow: hidden;
             min-height: 0;
             border-top: 1px solid var(--border);
-            opacity: 0;
-            transition: opacity 0.3s ease-out;
-            visibility: hidden;
-        }
-
-        .faq-item.active .faq-answer {
-            opacity: 1;
-            visibility: visible;
         }
 
         .faq-answer p {
