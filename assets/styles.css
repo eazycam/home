@@ -22,7 +22,7 @@ body {
     color: var(--text);
     line-height: 1.6;
     overflow-x: hidden;
-    /* Default background used in index, can be overridden */
+
     background-image:
         linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
         linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
@@ -33,7 +33,7 @@ body {
     flex-direction: column;
 }
 
-/* Utilities */
+
 .container {
     max-width: 1280px;
     margin: 0 auto;
@@ -98,7 +98,7 @@ body {
     background: rgba(30, 167, 63, 0.05);
 }
 
-/* Header */
+
 header {
     position: fixed;
     top: 0;
@@ -149,7 +149,7 @@ nav {
     color: #fff;
 }
 
-/* Mobile Menu Button */
+
 .mobile-menu-btn {
     display: none;
     flex-direction: column;
@@ -165,7 +165,7 @@ nav {
     transition: 0.3s;
 }
 
-/* Hamburger Animation */
+
 .mobile-menu-btn.active span:nth-child(1) {
     transform: translateY(8px) rotate(45deg);
 }
@@ -178,7 +178,7 @@ nav {
     transform: translateY(-8px) rotate(-45deg);
 }
 
-/* Mobile Menu Overlay */
+
 .mobile-menu {
     position: fixed;
     top: 80px;
@@ -218,7 +218,7 @@ nav {
     transform: translateY(0);
 }
 
-/* Links animation */
+
 .mobile-menu.active a {
     transition-delay: 0.2s;
 }
@@ -228,7 +228,7 @@ nav {
     padding: 1rem 2rem;
 }
 
-/* Footer */
+
 footer {
     padding: 4rem 0 2rem;
     border-top: 1px solid var(--border);
@@ -259,7 +259,7 @@ footer {
     font-size: 0.9rem;
 }
 
-/* Shared Media Queries */
+
 @media (max-width: 900px) {
     .nav-links {
         display: none;
