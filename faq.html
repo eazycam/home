@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eazycam | FAQ</title>
+    <meta name="description"
+        content="Frequently Asked Questions about Eazycam. Learn how to transform your smartphone into a high-quality webcam.">
+
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://eazycam.github.io/home/faq.html">
+    <meta property="og:title" content="Frequently Asked Questions - Eazycam">
+    <meta property="og:description"
+        content="Find answers to common questions about Eazycam, setup, and troubleshooting.">
+    <meta property="og:image" content="https://eazycam.github.io/home/assets/eazycam.png">
+
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://eazycam.github.io/home/faq.html">
+    <meta property="twitter:title" content="Frequently Asked Questions - Eazycam">
+    <meta property="twitter:description"
+        content="Find answers to common questions about Eazycam, setup, and troubleshooting.">
+    <meta property="twitter:image" content="https://eazycam.github.io/home/assets/eazycam.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1EA73F;
+            --primary-glow: rgba(30, 167, 63, 0.4);
+            --bg: #050505;
+            --surface: #0f0f0f;
+            --surface-hover: #141414;
+            --border: #222;
+            --text: #e0e0e0;
+            --text-muted: #888;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "DM Sans", sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-image:
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            background-position: center top;
+        }
+
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, #fff 0%, var(--primary) 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.4rem 1rem;
+            background: rgba(30, 167, 63, 0.1);
+            border: 1px solid rgba(30, 167, 63, 0.2);
+            color: var(--primary);
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(5, 5, 5, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        nav {
+            height: 80px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .logo img {
+            width: 40px;
+            height: 30px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #fff;
+        }
+
+        .btn {
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: #fff;
+            box-shadow: 0 0 20px rgba(30, 167, 63, 0.2);
+            border: 1px solid transparent;
+        }
+
+        .btn-primary:hover {
+            background: #17903a;
+            transform: translateY(-2px);
+            box-shadow: 0 0 30px rgba(30, 167, 63, 0.4);
+        }
+
+
+        .faq-section {
+            padding-top: 160px;
+            padding-bottom: 80px;
+            min-height: 80vh;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        .faq-grid {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .faq-item {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            border-color: var(--primary);
+            background: var(--surface-hover);
+        }
+
+        .faq-item.active {
+            border-color: var(--primary);
+            background: var(--surface-hover);
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+        }
+
+        .faq-question {
+            width: 100%;
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: none;
+            border: none;
+            color: #fff;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            text-align: left;
+            font-family: inherit;
+        }
+
+        .faq-question .icon {
+            font-size: 1.5rem;
+            color: var(--primary);
+            transition: transform 0.3s;
+        }
+
+        .faq-item.active .faq-question .icon {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer-wrapper {
+            display: grid;
+            grid-template-rows: 0fr;
+            transition: grid-template-rows 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .faq-item.active .faq-answer-wrapper {
+            grid-template-rows: 1fr;
+        }
+
+        .faq-answer {
+            overflow: hidden;
+            min-height: 0;
+            border-top: 1px solid var(--border);
+        }
+
+        .faq-answer p {
+            padding: 1.5rem;
+
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+
+        footer {
+            padding: 4rem 0 2rem;
+            border-top: 1px solid var(--border);
+            background: #050505;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .copyright {
+            color: #444;
+            font-size: 0.9rem;
+        }
+
+
+        .mobile-menu-btn {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .mobile-menu-btn span {
+            width: 25px;
+            height: 2px;
+            background: #fff;
+            transition: 0.3s;
+        }
+
+
+        .mobile-menu-btn.active span:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+
+        .mobile-menu-btn.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-btn.active span:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+
+
+        .mobile-menu {
+            position: fixed;
+            top: 80px;
+            left: 0;
+            width: 100%;
+            height: calc(100vh - 80px);
+            background: rgba(5, 5, 5, 0.95);
+            backdrop-filter: blur(20px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            transform: translateY(-100%);
+            opacity: 0;
+            transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: 999;
+        }
+
+        .mobile-menu.active {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .mobile-menu a {
+            font-size: 1.5rem;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 700;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: 0.3s;
+        }
+
+        .mobile-menu.active a {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+
+        .mobile-menu.active a {
+            transition-delay: 0.2s;
+        }
+
+        .mobile-menu .btn-primary {
+            font-size: 1.2rem;
+            padding: 1rem 2rem;
+        }
+
+
+        @media (max-width: 900px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="navbar-placeholder"></div>
+
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="badge">Support</span>
+                <h2>Frequently Asked Questions</h2>
+                <p>Everything you need to know about setting up and using Eazycam.</p>
+            </div>
+
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Is Eazycam really free?
+                        <span class="icon">+</span>
+                    </button>
+                    <div class="faq-answer-wrapper">
+                        <div class="faq-answer">
+                            <p>Yes! Eazycam is free for personal use. You can use it for Zoom, Discord, OBS, and other
+                                applications without any watermarks or time limits.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Does it work with Mac and Linux?
+                        <span class="icon">+</span>
+                    </button>
+                    <div class="faq-answer-wrapper">
+                        <div class="faq-answer">
+                            <p>Currently, the Eazycam desktop client is available for Windows 10/11. Support for macOS
+                                and Linux is on our roadmap and will be released soon.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Can I connect via USB?
+                        <span class="icon">+</span>
+                    </button>
+                    <div class="faq-answer-wrapper">
+                        <div class="faq-answer">
+                            <p>Absolutely. USB connection provides the lowest latency and most stable connection. Simply
+                                enable USB Debugging on your Android device and connect it to your PC.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Why is the video lagging?
+                        <span class="icon">+</span>
+                    </button>
+                    <div class="faq-answer-wrapper">
+                        <div class="faq-answer">
+                            <p>Lag is usually caused by network interface/interference on WiFi. For best results, use a
+                                5GHz band WiFi or connect via USB cable. Also ensure your PC meets the minimum
+                                requirements.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Which apps are supported?
+                        <span class="icon">+</span>
+                    </button>
+                    <div class="faq-answer-wrapper">
+                        <div class="faq-answer">
+                            <p>Eazycam creates a virtual webcam device that works with almost any Windows application
+                                like Zoom, Microsoft Teams, Discord, Skype, OBS Studio, Slack, and Google Meet.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="assets/components.js"></script>
+    <script>
+
+        const faqItems = document.querySelectorAll('.faq-item');
+
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+
+                faqItems.forEach(otherItem => {
+                    otherItem.classList.remove('active');
+                });
+
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

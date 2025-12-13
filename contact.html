@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Eazycam</title>
+    <meta name="description" content="Get in touch with the Eazycam team for support, partnerships, or inquiries.">
+
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://eazycam.github.io/home/contact.html">
+    <meta property="og:title" content="Contact Us - Eazycam">
+    <meta property="og:description"
+        content="Get in touch with the Eazycam team for support, partnerships, or inquiries.">
+    <meta property="og:image" content="https://eazycam.github.io/home/assets/eazycam.png">
+
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://eazycam.github.io/home/contact.html">
+    <meta property="twitter:title" content="Contact Us - Eazycam">
+    <meta property="twitter:description"
+        content="Get in touch with the Eazycam team for support, partnerships, or inquiries.">
+    <meta property="twitter:image" content="https://eazycam.github.io/home/assets/eazycam.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400&display=swap"
+        rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <style>
+        :root {
+            --primary: #1EA73F;
+            --bg: #050505;
+            --surface: #0f0f0f;
+            --surface-hover: #141414;
+            --border: #222;
+            --text: #e0e0e0;
+            --text-muted: #888;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "DM Sans", sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            background-image:
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(5, 5, 5, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        nav {
+            height: 80px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .logo img {
+            width: 40px;
+            height: 30px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #fff;
+        }
+
+        .btn-primary {
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            background: var(--primary);
+            color: #fff;
+            border: 1px solid transparent;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background: #17903a;
+            box-shadow: 0 0 20px rgba(30, 167, 63, 0.4);
+        }
+
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.4rem 1rem;
+            background: rgba(30, 167, 63, 0.1);
+            border: 1px solid rgba(30, 167, 63, 0.2);
+            color: var(--primary);
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+
+        .contact-section {
+            padding-top: 140px;
+            padding-bottom: 80px;
+            flex: 1;
+        }
+
+        .contact-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .contact-header h1 {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            color: #fff;
+            margin-bottom: 1rem;
+        }
+
+        .contact-header p {
+            color: var(--text-muted);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .info-card,
+        .form-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2.5rem;
+            position: relative;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+
+
+        .info-card:hover,
+        .form-card:hover {
+            border-color: rgba(30, 167, 63, 0.3);
+        }
+
+        .glow-effect::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(800px circle at var(--mouse-x) var(--mouse-y), rgba(30, 167, 63, 0.06), transparent 40%);
+            z-index: 1;
+            opacity: 0;
+            transition: opacity 0.5s;
+            pointer-events: none;
+        }
+
+        .form-card:hover::before,
+        .info-card:hover::before {
+            opacity: 1;
+        }
+
+
+        .info-item {
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .info-item h3 {
+            color: #fff;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .info-item p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .info-item a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+
+        .form-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            color: #fff;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            background: #0a0a0a;
+            border: 1px solid var(--border);
+            color: #fff;
+            padding: 1rem;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 0.95rem;
+            transition: 0.3s;
+        }
+
+        input:focus,
+        textarea:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(30, 167, 63, 0.1);
+            background: #0f0f0f;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+
+        .success-message {
+            display: none;
+            text-align: center;
+            padding: 2rem;
+            animation: fadeIn 0.4s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .checkmark-circle {
+            width: 80px;
+            height: 80px;
+            background: rgba(30, 167, 63, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            border: 1px solid rgba(30, 167, 63, 0.2);
+            position: relative;
+        }
+
+        .checkmark-circle svg {
+            width: 40px;
+            height: 40px;
+            stroke: var(--primary);
+            stroke-width: 3;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            fill: none;
+            animation: drawCheck 0.6s 0.2s ease forwards;
+            stroke-dasharray: 100;
+            stroke-dashoffset: 100;
+        }
+
+        @keyframes drawCheck {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+
+        .success-message h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            color: #fff;
+        }
+
+        .success-message p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+
+        footer {
+            padding: 4rem 0 2rem;
+            border-top: 1px solid var(--border);
+            background: #050505;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .copyright {
+            color: #444;
+            font-size: 0.9rem;
+        }
+
+
+
+        .mobile-menu-btn {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .mobile-menu-btn span {
+            width: 25px;
+            height: 2px;
+            background: #fff;
+            transition: 0.3s;
+        }
+
+
+        .mobile-menu-btn.active span:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+
+        .mobile-menu-btn.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-btn.active span:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+
+
+        .mobile-menu {
+            position: fixed;
+            top: 80px;
+            left: 0;
+            width: 100%;
+            height: calc(100vh - 80px);
+            background: rgba(5, 5, 5, 0.95);
+            backdrop-filter: blur(20px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            transform: translateY(-100%);
+            opacity: 0;
+            transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: 999;
+        }
+
+        .mobile-menu.active {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .mobile-menu a {
+            font-size: 1.5rem;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 700;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: 0.3s;
+        }
+
+        .mobile-menu.active a {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+
+        .mobile-menu.active a {
+            transition-delay: 0.2s;
+        }
+
+        .mobile-menu .btn-primary {
+            font-size: 1.2rem;
+            padding: 1rem 2rem;
+        }
+
+        @media (max-width: 900px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="navbar-placeholder"></div>
+
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-header">
+                <span class="badge">Support</span>
+                <h1>Get in Touch</h1>
+                <p>Having trouble with the driver? Found a bug? Let us know.</p>
+            </div>
+
+            <div class="contact-grid">
+
+                <div class="info-card glow-effect">
+                    <div class="info-item">
+                        <h3>Email Support</h3>
+                        <p>For general inquiries and technical help:</p>
+                        <a href="mailto:eazycam.app@gmail.com">eazycam.app@gmail.com</a>
+                    </div>
+
+                    <div class="info-item">
+                        <h3>Community</h3>
+                        <p>Join our Discord for instant help from the community.</p>
+                        <a href="https://discord.gg/s82a2aHT">Join Discord Server ↗</a>
+                    </div>
+
+                    <div class="info-item">
+                        <h3>Business</h3>
+                        <p>For partnership inquiries:</p>
+                        <a href="mailto:eazycam.app@gmail.com">eazycam.app@gmail.com</a>
+                    </div>
+                </div>
+
+
+                <div class="form-card glow-effect">
+
+                    <form id="contact-form" class="form-content">
+
+                        <input type="hidden" name="access_key" value="1588f3d7-48cf-4586-a86d-c1649a8bd053">
+
+                        <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
+                        <div class="form-group">
+                            <label class="form-label">Name</label>
+                            <input type="text" placeholder="John Doe" name="name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Email Address</label>
+                            <input type="email" placeholder="john@example.com" name="email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Subject</label>
+                            <input type="text" placeholder="I can't connect via WiFi..." name="subject" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Message</label>
+                            <textarea placeholder="Describe your issue in detail..." name="message" required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-primary"
+                            style="width: 100%; border: none; font-size: 1rem;">Send Message</button>
+
+                        <div id="result" style="margin-top:10px; color: white;"></div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="assets/components.js"></script>
+    <script>
+        document.querySelectorAll('.glow-effect').forEach(card => {
+            card.addEventListener('mousemove', e => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+
+        const form = document.getElementById('contact-form');
+        const result = document.getElementById('result');
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const submitButton = form.querySelector('button[type="submit"]');
+            const originalButtonText = submitButton.innerText;
+            submitButton.innerText = "Sending...";
+            submitButton.disabled = true;
+
+            const formData = new FormData(form);
+            const object = Object.fromEntries(formData);
+            const json = JSON.stringify(object);
+
+            result.innerHTML = "Please wait...";
+
+            fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: json
+            })
+                .then(async (response) => {
+                    let json = await response.json();
+                    if (response.status == 200) {
+                        window.location.href = "success.html";
+                    } else {
+                        console.log(response);
+                        result.innerHTML = json.message;
+                        result.style.color = "red";
+                        submitButton.innerText = originalButtonText;
+                        submitButton.disabled = false;
+                    }
+                })
+                .catch(error => {
+                    console.log(error);
+                    result.innerHTML = "Something went wrong!";
+                    result.style.color = "red";
+                    submitButton.innerText = originalButtonText;
+                    submitButton.disabled = false;
+                });
+        });
+    </script>
+
+</body>
+
+</html>

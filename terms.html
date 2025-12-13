@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service - Eazycam</title>
+    <meta name="description" content="Terms and conditions for using Eazycam software and services.">
+
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://eazycam.github.io/home/terms.html">
+    <meta property="og:title" content="Terms of Service - Eazycam">
+    <meta property="og:description" content="Terms and conditions for using Eazycam software and services.">
+    <meta property="og:image" content="https://eazycam.github.io/home/assets/eazycam.png">
+
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://eazycam.github.io/home/terms.html">
+    <meta property="twitter:title" content="Terms of Service - Eazycam">
+    <meta property="twitter:description" content="Terms and conditions for using Eazycam software and services.">
+    <meta property="twitter:image" content="https://eazycam.github.io/home/assets/eazycam.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400&display=swap"
+        rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <style>
+        :root {
+            --primary: #1EA73F;
+            --primary-glow: rgba(30, 167, 63, 0.4);
+            --bg: #050505;
+            --surface: #0f0f0f;
+            --surface-hover: #141414;
+            --border: #222;
+            --text: #e0e0e0;
+            --text-muted: #888;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "DM Sans", sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-image:
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            background-position: center top;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.4rem 1rem;
+            background: rgba(30, 167, 63, 0.1);
+            border: 1px solid rgba(30, 167, 63, 0.2);
+            color: var(--primary);
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(5, 5, 5, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        nav {
+            height: 80px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .logo img {
+            width: 40px;
+            height: 30px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #fff;
+        }
+
+        .btn {
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: #fff;
+            box-shadow: 0 0 20px rgba(30, 167, 63, 0.2);
+            border: 1px solid transparent;
+        }
+
+        .btn-primary:hover {
+            background: #17903a;
+            transform: translateY(-2px);
+            box-shadow: 0 0 30px rgba(30, 167, 63, 0.4);
+        }
+
+
+        .legal-section {
+            padding-top: 140px;
+            padding-bottom: 80px;
+            flex: 1;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .page-header h1 {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        .page-header p {
+            color: var(--text-muted);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .legal-container {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 3rem;
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+            transition: border-color 0.3s;
+        }
+
+
+        .legal-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(800px circle at var(--mouse-x) var(--mouse-y), rgba(30, 167, 63, 0.06), transparent 40%);
+            z-index: 1;
+            opacity: 0;
+            transition: opacity 0.5s;
+            pointer-events: none;
+        }
+
+        .legal-container:hover::before {
+            opacity: 1;
+        }
+
+        .legal-container:hover {
+            border-color: rgba(30, 167, 63, 0.3);
+        }
+
+        .content-wrapper {
+            position: relative;
+            z-index: 2;
+        }
+
+        .legal-block {
+            margin-bottom: 2.5rem;
+        }
+
+        .legal-block:last-child {
+            margin-bottom: 0;
+        }
+
+        .legal-block h2 {
+            color: #fff;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .legal-block h2::before {
+            content: '#';
+            color: var(--primary);
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 400;
+        }
+
+        .legal-block p {
+            margin-bottom: 1rem;
+            color: var(--text-muted);
+        }
+
+        .legal-block ul {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            color: var(--text-muted);
+        }
+
+        .legal-block li {
+            margin-bottom: 0.5rem;
+        }
+
+        .legal-block a {
+            color: var(--primary);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: 0.2s;
+        }
+
+        .legal-block a:hover {
+            border-bottom-color: var(--primary);
+        }
+
+
+        footer {
+            padding: 4rem 0 2rem;
+            border-top: 1px solid var(--border);
+            background: #050505;
+            text-align: center;
+            margin-top: auto;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .copyright {
+            color: #444;
+            font-size: 0.9rem;
+        }
+
+
+        .mobile-menu-btn {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .mobile-menu-btn span {
+            width: 25px;
+            height: 2px;
+            background: #fff;
+            transition: 0.3s;
+        }
+
+
+        .mobile-menu-btn.active span:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+
+        .mobile-menu-btn.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-btn.active span:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+
+
+        .mobile-menu {
+            position: fixed;
+            top: 80px;
+            left: 0;
+            width: 100%;
+            height: calc(100vh - 80px);
+            background: rgba(5, 5, 5, 0.95);
+            backdrop-filter: blur(20px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            transform: translateY(-100%);
+            opacity: 0;
+            transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: 999;
+        }
+
+        .mobile-menu.active {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .mobile-menu a {
+            font-size: 1.5rem;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 700;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: 0.3s;
+        }
+
+        .mobile-menu.active a {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+
+        .mobile-menu.active a {
+            transition-delay: 0.2s;
+        }
+
+        .mobile-menu .btn-primary {
+            font-size: 1.2rem;
+            padding: 1rem 2rem;
+        }
+
+        @media (max-width: 900px) {
+            .legal-section {
+                padding-top: 100px;
+                padding-bottom: 40px;
+            }
+
+            .container {
+                padding: 0 1.5rem;
+            }
+
+            .legal-container {
+                padding: 1.5rem;
+            }
+
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="navbar-placeholder"></div>
+
+    <section class="legal-section">
+        <div class="container">
+            <div class="page-header">
+                <span class="badge">Legal</span>
+                <h1>Terms of Service</h1>
+                <p>Last Updated: December 6, 2025</p>
+            </div>
+
+            <div class="legal-container" id="legal-card">
+                <div class="content-wrapper">
+                    <div class="legal-block">
+                        <h2>1. Acceptance of Terms</h2>
+                        <p>By downloading, installing, or using the Eazycam mobile application or desktop client
+                            (collectively, the "Service"), you agree to be bound by these Terms of Service. If you do
+                            not agree to these terms, please do not use the Service.</p>
+                    </div>
+
+                    <div class="legal-block">
+                        <h2>2. Use of Service</h2>
+                        <p>Eazycam grants you a personal, non-exclusive, non-transferable, revocable license to use the
+                            Service for personal or commercial purposes, provided that:</p>
+                        <ul>
+                            <li>You do not use the Service for any illegal or unauthorized purpose.</li>
+                            <li>You do not attempt to reverse engineer, decompile, or disassemble any portion of the
+                                software.</li>
+                            <li>You do not use the Service to transmit viruses or malicious code.</li>
+                        </ul>
+                    </div>
+
+                    <div class="legal-block">
+                        <h2>3. User Content</h2>
+                        <p>Eazycam acts as a pass-through utility for your camera feed. We do not record, store, or
+                            transmit your video feed to our servers. Your video data remains local on your network or
+                            device unless explicitly broadcast by you via third-party software (e.g., Zoom, OBS).</p>
+                    </div>
+
+                    <div class="legal-block">
+                        <h2>4. Intellectual Property</h2>
+                        <p>The Service and its original content, features, and functionality are and will remain the
+                            exclusive property of Eazycam and its licensors. The Service is protected by copyright,
+                            trademark, and other laws of both the country of origin and foreign countries.</p>
+                    </div>
+
+                    <div class="legal-block">
+                        <h2>5. Disclaimer of Warranties</h2>
+                        <p>The Service is provided on an "AS IS" and "AS AVAILABLE" basis. Eazycam makes no
+                            representations or warranties of any kind, express or implied, regarding the operation of
+                            the Service, or the information, content, or materials included therein.</p>
+                        <p>We do not guarantee that the Service will function uninterrupted, secure, or available at any
+                            particular time or location, or that any errors or defects will be corrected.</p>
+                    </div>
+
+                    <div class="legal-block">
+                        <h2>6. Limitation of Liability</h2>
+                        <p>In no event shall Eazycam, nor its directors, employees, partners, agents, suppliers, or
+                            affiliates, be liable for any indirect, incidental, special, consequential or punitive
+                            damages, including without limitation, loss of profits, data, use, goodwill, or other
+                            intangible losses, resulting from your access to or use of or inability to access or use the
+                            Service.</p>
+                    </div>
+
+                    <div class="legal-block">
+                        <h2>7. Changes to Terms</h2>
+                        <p>We reserve the right, at our sole discretion, to modify or replace these Terms at any time.
+                            If a revision is material, we will provide at least 30 days' notice prior to any new terms
+                            taking effect. What constitutes a material change will be determined at our sole discretion.
+                        </p>
+                    </div>
+
+                    <div class="legal-block">
+                        <h2>8. Contact Us</h2>
+                        <p>If you have any questions about these Terms, please contact us at <a
+                                href="mailto:eazycam.app@gmail.com">eazycam.app@gmail.com</a>.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="assets/components.js"></script>
+    <script>
+
+        const card = document.getElementById('legal-card');
+        if (card) {
+            card.addEventListener('mousemove', e => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            });
+        }
+    </script>
+</body>
+
+</html>
