@@ -1282,17 +1282,9 @@
             <h1 class="waitlist-header">Coming soon!</h1>
 
             <div class="card waitlist-card">
-                <h2>Join our waitlist!</h2>
-                <p>Get early access to our upcoming release and secure your spot on the waitlist.</p>
-
-                <form class="input-group" id="waitlistForm" onsubmit="return false;">
-                    <div class="input-wrapper">
-                        <input type="email" id="emailInput" placeholder="Enter email" required>
-                    </div>
-                    <button type="submit" id="submitBtn">
-                        <span id="btnText">Join Waitlist</span>
-                    </button>
-                </form>
+                <h2>Waitlist Closed</h2>
+                <p>The waitlist is officially closed. Thank you for the incredible support, we are preparing for the
+                    launch!</p>
                 <div class="waitlist-stats">
                     <div class="avatar-stack">
                         <img src="assets/avatar-2.png" alt="User" class="avatar">
@@ -1300,7 +1292,7 @@
                         <img src="assets/avatar-1.png" alt="User" class="avatar">
                     </div>
                     <div class="stats-text">
-                        <strong id="userCount">0+</strong> have already joined
+                        <strong id="userCount">0+</strong> spots claimed for v1
                     </div>
                 </div>
             </div>
@@ -1358,76 +1350,11 @@
         updateWaitlistCount();
 
 
-        const form = document.getElementById('waitlistForm');
-        const emailInput = document.getElementById('emailInput');
-        const submitBtn = document.getElementById('submitBtn');
-        const btnText = document.getElementById('btnText');
-
-        form.addEventListener('submit', async function (e) {
-            e.preventDefault();
-
-            const email = emailInput.value.trim();
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-            if (emailRegex.test(email)) {
-                try {
-
-                    const originalText = btnText.textContent;
-                    btnText.textContent = 'Joining...';
 
 
-                    await addDoc(collection(db, "waitlist"), {
-                        email: email,
-                        timestamp: serverTimestamp()
-                    });
 
 
-                    submitBtn.classList.add('success');
-                    btnText.textContent = 'Joined!';
 
-
-                    setTimeout(() => {
-                        emailInput.value = '';
-                    }, 300);
-
-
-                    setTimeout(() => {
-                        btnText.textContent = 'Join Waitlist';
-                        submitBtn.classList.remove('success');
-                        updateWaitlistCount();
-                    }, 2000);
-
-                } catch (error) {
-                    console.error("Error adding document: ", error);
-                    btnText.textContent = 'Error. Try again.';
-                    setTimeout(() => {
-                        btnText.textContent = 'Join Waitlist';
-                    }, 3000);
-                }
-            } else {
-
-                emailInput.style.animation = 'none';
-                setTimeout(() => {
-                    emailInput.style.animation = 'shake 0.5s';
-                }, 10);
-            }
-        });
-
-
-        emailInput.addEventListener('animationend', function () {
-            emailInput.style.animation = '';
-        });
-
-
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes shake {
-                0%, 100% { transform: translateX(0); }
-                10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
-                20%, 40%, 60%, 80% { transform: translateX(5px); }
-            }
-        `;
-        document.head.appendChild(style);
     </script>
 </body>
 
