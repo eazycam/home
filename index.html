@@ -1143,7 +1143,7 @@
 
     <section class="hero">
         <div class="container">
-            <span class="badge">Coming Soon!</span>
+            <span class="badge">Beta Version is Live!</span>
             <h1>Turn Your Phone Into<br><span class="text-gradient">A Pro Webcam</span></h1>
             <p>Skip the expensive gear. Use your phone's superior camera for Zoom, OBS, and streaming in 1080p HD with
                 ultra-low latency.</p>
@@ -1265,39 +1265,29 @@
         </div>
     </section>
 
-
-
-    <section id="waitlist" class="waitlist-section">
-        <div class="waitlist-glow-bg">
-            <div class="glow-orb orb-1"></div>
-            <div class="glow-orb orb-2"></div>
-            <div class="glow-orb orb-3"></div>
-        </div>
-
-        <div class="container waitlist-content">
-            <div class="waitlist-badge">
-                Waitlist
+    <section id="download" class="download-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="badge">Download</span>
+                <h2>Start Streaming Today</h2>
+                <p>Free for personal use. Choose your platform below.</p>
             </div>
 
-            <h1 class="waitlist-header">Coming soon!</h1>
+            <div class="download-grid">
 
-            <div class="card waitlist-card">
-                <h2>Waitlist Closed</h2>
-                <p>The waitlist is officially closed. Thank you for the incredible support, we are preparing for the
-                    launch!</p>
-                <div class="waitlist-stats">
-                    <div class="avatar-stack">
-                        <img src="assets/avatar-2.png" alt="User" class="avatar">
-                        <img src="assets/avatar-3.png" alt="User" class="avatar">
-                        <img src="assets/avatar-1.png" alt="User" class="avatar">
-                    </div>
-                    <div class="stats-text">
-                        <strong id="userCount">0+</strong> spots claimed for v1
-                    </div>
+                <!-- <div class="dl-card">
+                    <h3>Android App</h3>
+                    <span class="dl-version">v0.1.0 (beta)</span>
+                    <a href="#" class="btn btn-primary">Download from Play Store</a>
+                </div> -->
+
+                <div class="dl-card">
+                    <h3>Windows Client</h3>
+                    <span class="dl-version">v0.1.0 (beta)</span>
+                    <a href="https://github.com/eazycam/home/releases/download/v0.1.0-beta/Eazycam.exe"
+                        class="btn btn-primary">Download Setup</a>
                 </div>
             </div>
-
-
         </div>
     </section>
 
@@ -1305,7 +1295,6 @@
 
     <script src="assets/components.js"></script>
     <script>
-
         document.querySelectorAll('.card').forEach(card => {
             card.addEventListener('mousemove', e => {
                 const rect = card.getBoundingClientRect();
@@ -1315,46 +1304,6 @@
                 card.style.setProperty('--mouse-y', `${y}px`);
             });
         });
-    </script>
-    <script type="module">
-
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
-        import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-analytics.js";
-        import { getFirestore, collection, addDoc, serverTimestamp, getCountFromServer } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore.js";
-
-
-        import { firebaseConfig } from "./firebase-config.js";
-
-
-        const app = initializeApp(firebaseConfig);
-        const analytics = getAnalytics(app);
-        const db = getFirestore(app);
-
-
-        async function updateWaitlistCount() {
-            try {
-                const waitlistRef = collection(db, "waitlist");
-                const snapshot = await getCountFromServer(waitlistRef);
-                const count = snapshot.data().count;
-
-
-                const userCountElement = document.getElementById('userCount');
-                userCountElement.textContent = `${count}+`;
-            } catch (error) {
-                console.error("Error fetching count: ", error);
-                document.getElementById('userCount').textContent = '0+';
-            }
-        }
-
-
-        updateWaitlistCount();
-
-
-
-
-
-
-
     </script>
 </body>
 
