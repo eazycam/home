@@ -52,7 +52,7 @@
 
                 return db;
             } catch (error) {
-                console.error('Error loading Firebase config:', error);
+                console.error('Error loading config files:', error);
                 return null;
             }
         }
@@ -77,7 +77,7 @@
                             average: 4.8
                         }
                     });
-                    console.log('Stats initialized in Firebase');
+                    console.log('Stats initialized');
                 }
             } catch (error) {
                 console.error('Error initializing stats:', error);
@@ -102,7 +102,7 @@
                         activeUsersCounter.dataset.target = data.activeUsers;
                     }
 
-                    console.log('Stats loaded from Firebase:', data);
+                    console.log('Stats loaded', data);
                     return data;
                 }
             } catch (error) {
@@ -129,7 +129,7 @@
                 }
 
                 await updateDoc(statsRef, updateData);
-                console.log(`Download tracked in Firebase: ${platform}`);
+                console.log(`Download tracked: ${platform}`);
 
                 await loadStatsFromFirebase(db);
             } catch (error) {
@@ -157,7 +157,7 @@
                         'ratings.average': parseFloat(newAverage)
                     });
 
-                    console.log(`Rating saved to Firebase: ${rating}`);
+                    console.log(`Rating saved: ${rating}`);
                 }
             } catch (error) {
                 console.error('Error saving rating:', error);
@@ -2426,7 +2426,7 @@
             if (window.trackDownloadFirebase) {
                 window.trackDownloadFirebase(platform);
             } else {
-                console.log('Firebase not loaded yet, retrying...');
+                console.log('Database not loaded yet, retrying...');
                 setTimeout(() => trackDownload(platform), 500);
             }
         }
