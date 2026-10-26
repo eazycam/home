@@ -2429,8 +2429,8 @@
         }, { passive: true });
 
         function trackDownload(platform) {
-            // Dropplink: once per click, not on each retry below.
-            window.dropplink.track('download_click', { platform: platform });
+            // Dropplink funnel (assets/analytics.js): once per click, not on each retry below.
+            window.eazycamFunnel.download(platform);
             saveDownload(platform);
         }
 
