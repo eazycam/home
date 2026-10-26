@@ -2,6 +2,8 @@
 <html lang="en">
 
 <head>
+    <!-- Dropplink website attribution (assets/analytics.js) -->
+    <script src="assets/analytics.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us - Eazycam</title>
@@ -587,6 +589,8 @@
                 .then(async (response) => {
                     let json = await response.json();
                     if (response.status == 200) {
+                        // Dropplink: sent before leaving; the script keeps it until it's delivered.
+                        window.dropplink.track('contact_submit');
                         window.location.href = "success.html";
                     } else {
                         console.log(response);
