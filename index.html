@@ -2429,7 +2429,7 @@
         }, { passive: true });
 
         function trackDownload(platform) {
-            // Dropplink funnel (assets/analytics.js): once per click, not on each retry below.
+            // Dropplink (assets/analytics.js): once per click, not on each retry below.
             window.eazycamFunnel.download(platform);
             saveDownload(platform);
         }
@@ -2504,7 +2504,7 @@
                     const result = await response.json();
 
                     if (response.status === 200) {
-                        window.dropplink.track('feedback_submit', { rating: Number(data.rating) || null });
+                        window.dropplink.track('feedback_submitted', { rating: Number(data.rating) || null });
                         if (data.rating && window.saveRatingToFirebase) {
                             await window.saveRatingToFirebase(data.rating);
                         }
