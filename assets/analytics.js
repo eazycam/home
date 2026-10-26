@@ -15,7 +15,7 @@
 (function () {
     // The Eazycam app's web key, from Dropplink → Settings → Project details → Website. Public by design:
     // it only works from the website domains listed there (eazycam.app). Empty: nothing is sent.
-    var WEB_KEY = '';
+    var WEB_KEY = 'pk_0adf93ea1900adc4';
 
     // Calls made before the script loads wait in dropplink.q and run once it does.
     window.dropplink = window.dropplink || { q: [] };
